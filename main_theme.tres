@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bpl5afu4jb0cw"]
+
+[ext_resource type="StyleBox" uid="uid://btjhfogdctlfl" path="res://Scenes/Card UI/card_base_stylebox.tres" id="1_6m0sj"]
+[ext_resource type="FontFile" uid="uid://bvih3v27jsssi" path="res://Assets/Goldman-Regular.ttf" id="2_u71l1"]
+
+[resource]
+default_font = ExtResource("2_u71l1")
+default_font_size = 30
+Panel/styles/panel = ExtResource("1_6m0sj")

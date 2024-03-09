@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cf0wa883w5t1i"]
+
+[ext_resource type="Texture2D" uid="uid://cwrm05rnp1k0i" path="res://Assets/Tiny Dungeon/Tiles/tile_0110.png" id="1_nb701"]
+[ext_resource type="Script" path="res://Resources/Stats.cs" id="2_5xird"]
+
+[resource]
+script = ExtResource("2_5xird")
+maxHealth = 10
+art = ExtResource("1_nb701")

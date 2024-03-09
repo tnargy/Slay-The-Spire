@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://0j5akna0cvjm"]
+
+[ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="1_c866d"]
+[ext_resource type="Script" path="res://Scripts/UI/Hand.cs" id="2_m5pui"]
+[ext_resource type="PackedScene" uid="uid://2buwq5fkmjmi" path="res://Scenes/Card UI/card_ui.tscn" id="2_n7gi0"]
+[ext_resource type="PackedScene" uid="uid://3goa2recbk5h" path="res://Scenes/Characters/enemy.tscn" id="2_nu7rj"]
+[ext_resource type="PackedScene" uid="uid://opn1vjrow5o0" path="res://Scenes/Card Target/card_target_selector.tscn" id="3_0j4dx"]
+[ext_resource type="PackedScene" uid="uid://b83tepqvqdk38" path="res://Scenes/Characters/player.tscn" id="3_7l36r"]
+[ext_resource type="Resource" uid="uid://cf0wa883w5t1i" path="res://Resources/Enemy/Crab/test_enemy.tres" id="3_wj3f0"]
+[ext_resource type="Resource" uid="uid://ct24wa1tvpvnj" path="res://Resources/Characters/Warrior/Cards/WarriorAxeAttack.tres" id="4_66qau"]
+[ext_resource type="Resource" uid="uid://bqtc1lkmaqlhn" path="res://Resources/Characters/Warrior/Warrior.tres" id="4_exrep"]
+[ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/Warrior/Cards/WarriorBlock.tres" id="5_t8b0g"]
+[ext_resource type="PackedScene" uid="uid://dpp5l6na7sdgw" path="res://Scenes/UI/mana_ui.tscn" id="11_wu3pj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um6c0"]
+size = Vector2(1153, 415)
+
+[node name="Battle" type="Node2D"]
+
+[node name="Background" type="TileMap" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+scale = Vector2(4, 4)
+tile_set = ExtResource("1_c866d")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 1, 4, 524289, 65537, 4, 589825, 1, 4, 524290, 1, 4, 458754, 1, 4, 458755, 1, 4, 458756, 1, 4, 196608, 131073, 4, 262144, 1, 4, 327680, 393217, 3, 393216, 1, 4, 458752, 1, 4, 524288, 1, 4, 196609, 131073, 4, 262145, 1, 4, 327681, 1, 4, 393217, 1, 4, 458753, 1, 4, 196610, 524289, 3, 262146, 1, 4, 327682, 1, 4, 393218, 65537, 4, 589826, 1, 4, 196611, 131073, 4, 262147, 1, 4, 327683, 65537, 4, 393219, 1, 4, 524291, 393217, 3, 589827, 1, 4, 196612, 131073, 4, 262148, 1, 4, 327684, 1, 4, 393220, 1, 4, 524292, 1, 4, 589828, 1, 4, 196613, 196609, 4, 262149, 1, 4, 327685, 1, 4, 393221, 1, 4, 458757, 1, 4, 524293, 1, 4, 589829, 1, 4, 196614, 131073, 4, 262150, 1, 4, 327686, 1, 4, 393222, 393217, 3, 458758, 1, 4, 524294, 1, 4, 589830, 1, 4, 196615, 196609, 4, 262151, 1, 4, 327687, 1, 4, 393223, 1, 4, 458759, 1, 4, 524295, 65537, 4, 589831, 1, 4, 196616, 131073, 4, 262152, 1, 4, 327688, 65537, 4, 393224, 1, 4, 458760, 1, 4, 524296, 1, 4, 589832, 1, 4, 196617, 131073, 4, 262153, 1, 4, 327689, 1, 4, 393225, 1, 4, 458761, 393217, 3, 524297, 1, 4, 589833, 1, 4, 196618, 131073, 4, 262154, 1, 4, 327690, 393217, 3, 393226, 1, 4, 458762, 1, 4, 524298, 1, 4, 589834, 1, 4, 196619, 196609, 4, 262155, 1, 4, 327691, 1, 4, 393227, 1, 4, 458763, 1, 4, 524299, 1, 4, 589835, 1, 4, 196620, 131073, 4, 262156, 1, 4, 327692, 1, 4, 393228, 1, 4, 458764, 1, 4, 524300, 1, 4, 589836, 393217, 3, 196621, 196609, 4, 262157, 1, 4, 327693, 65537, 4, 393229, 65537, 4, 458765, 1, 4, 524301, 65537, 4, 589837, 1, 4, 196622, 131073, 4, 262158, 1, 4, 327694, 1, 4, 393230, 1, 4, 458766, 1, 4, 524302, 1, 4, 589838, 1, 4, 196623, 524289, 2, 262159, 1, 4, 327695, 1, 4, 393231, 1, 4, 458767, 393217, 3, 524303, 1, 4, 589839, 1, 4, 196624, 131073, 4, 262160, 1, 4, 327696, 393217, 3, 393232, 1, 4, 458768, 1, 4, 524304, 1, 4, 589840, 65537, 4, 196625, 131073, 4, 262161, 1, 4, 327697, 1, 4, 393233, 1, 4, 458769, 65537, 4, 524305, 1, 4, 589841, 1, 4, 0, 131073, 0, 1, 131073, 0, 2, 131073, 0, 3, 131073, 0, 4, 131073, 0, 5, 131073, 0, 6, 131073, 0, 7, 131073, 0, 8, 131073, 0, 9, 131073, 0, 10, 131073, 0, 11, 131073, 0, 12, 131073, 0, 13, 131073, 0, 14, 131073, 0, 15, 131073, 0, 16, 131073, 0, 17, 131073, 0, 65536, 262145, 3, 131072, 262145, 3, 65537, 262145, 2, 131073, 589825, 0, 65538, 262145, 3, 131074, 524289, 0, 65539, 262145, 3, 131075, 262145, 3, 65540, 262145, 2, 131076, 262145, 3, 65541, 262145, 3, 131077, 262145, 3, 65542, 327681, 2, 131078, 262145, 3, 65543, 262145, 3, 131079, 262145, 3, 65544, 327681, 2, 131080, 589825, 3, 65545, 262145, 3, 131081, 262145, 3, 65546, 327681, 2, 131082, 262145, 3, 65547, 262145, 3, 131083, 262145, 3, 65548, 262145, 3, 131084, 262145, 3, 65549, 262145, 2, 131085, 262145, 3, 65550, 262145, 3, 131086, 262145, 3, 65551, 262145, 3, 131087, 524289, 1, 65552, 262145, 3, 131088, 262145, 3, 65553, 262145, 2, 131089, 589825, 0)
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(575.5, 206.5)
+shape = SubResource("RectangleShape2D_um6c0")
+debug_color = Color(0, 0.6, 0.701961, 0.231373)
+
+[node name="Enemy" parent="." instance=ExtResource("2_nu7rj")]
+position = Vector2(853, 302)
+scale = Vector2(1, 1)
+Stats = ExtResource("3_wj3f0")
+
+[node name="Player" parent="." instance=ExtResource("3_7l36r")]
+position = Vector2(191, 276)
+Stats = ExtResource("4_exrep")
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("3_0j4dx")]
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["UI_Layer"]]
+
+[node name="ManaUI" parent="BattleUI" instance=ExtResource("11_wu3pj")]
+characterStats = ExtResource("4_exrep")
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -434.0
+offset_top = -160.0
+offset_right = 434.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("2_m5pui")
+
+[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_n7gi0")]
+layout_mode = 2
+card = ExtResource("4_66qau")
+characterStats = ExtResource("4_exrep")
+
+[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("2_n7gi0")]
+layout_mode = 2
+card = ExtResource("4_66qau")
+characterStats = ExtResource("4_exrep")
+
+[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_n7gi0")]
+layout_mode = 2
+card = ExtResource("5_t8b0g")
+characterStats = ExtResource("4_exrep")
