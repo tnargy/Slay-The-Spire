@@ -16,8 +16,8 @@ public partial class Enemy : Area2D
     [Export] StatsUI statsUI;
     [Export] Sprite2D selected;
     
-    void HandleAreaEntered(Area2D area2D) => selected.Visible = true;
-    void HandleAreaExited(Area2D area2D) => selected.Visible = false;
+    void HandleAreaEntered(Area2D area2D) => selected.Show();
+    void HandleAreaExited(Area2D area2D) => selected.Hide();
 
     public override void _Ready()
     {

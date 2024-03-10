@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bghvehx1abp7"]
+
+[ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://main_theme.tres" id="1_rj5kb"]
+[ext_resource type="Script" path="res://Scripts/UI/Tooltip.cs" id="2_r1yij"]
+[ext_resource type="Texture2D" uid="uid://drr3w5edg4ysk" path="res://Assets/Tiny Dungeon/Tiles/tile_0119.png" id="2_vutxg"]
+
+[node name="Tooltip" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme = ExtResource("1_rj5kb")
+script = ExtResource("2_r1yij")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TooltipIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+texture = ExtResource("2_vutxg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TooltipText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "This is  a test!
+This is  a test!"

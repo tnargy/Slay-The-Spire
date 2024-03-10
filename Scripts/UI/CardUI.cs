@@ -6,8 +6,27 @@ using System.Linq;
 
 public partial class CardUI : Control
 {
-	[Export] public Card card;
-	[Export] public CharacterStats characterStats;
+	[Export] private Card _card;
+	public Card card
+	{
+		get => _card;
+		set
+		{
+			_card = value;
+			cost.Text = Convert.ToString(_card.cost);
+			icon.Texture = _card.icon;
+		}
+	}
+	[Export] private CharacterStats _characterStats;
+    public CharacterStats CharStats
+    {
+        get => _characterStats;
+        set
+        {
+            _characterStats = value;
+			CharStats.OnStatsChanged += () => Playable = CharStats.CanPlayCard(card);
+        }
+    }
 
     public Panel panel { get; private set; }
 	public Label cost { get; private set; }
@@ -57,15 +76,12 @@ public partial class CardUI : Control
 		targets = new();
 		parent = GetParent<Control>();
 
-		SetCard(card);
-
         foreach (var item in stateMachine.states)
 		{
 			item.cardUI = this;
 		}
 		stateMachine.currentState.Notification(GameConstants.NOTIFICATION_ENTER_STATE);
 
-		characterStats.OnStatsChanged += () => Playable = characterStats.CanPlayCard(card);
 		GameEvents.OnCardAimingStarted += HandleCardAimingOrDraggingStarted;
 		GameEvents.OnCardDragStarted += HandleCardAimingOrDraggingStarted;
 		GameEvents.OnCardAimingEnded += HandleCardAimingOrDraggingEnded;
@@ -81,14 +97,7 @@ public partial class CardUI : Control
     private void HandleCardAimingOrDraggingEnded(CardUI uI)
     {
         disabled = false;
-		Playable = characterStats.CanPlayCard(card);
-    }
-
-    private void SetCard(Card value)
-    {
-        card = value;
-		cost.Text = Convert.ToString(card.cost);
-		icon.Texture = card.icon;
+		Playable = CharStats.CanPlayCard(card);
     }
 
     public override void _Input(InputEvent @event) 
@@ -121,7 +130,7 @@ public partial class CardUI : Control
 	{
 		if (card == null) { return; }
 		
-		card.Play(targets.ToArray(), characterStats);
+		card.Play(targets.ToArray(), CharStats);
 		QueueFree();
 	}
 }

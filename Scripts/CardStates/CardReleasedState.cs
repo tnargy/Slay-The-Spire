@@ -9,6 +9,7 @@ public partial class CardReleasedState : CardState
 
         if (cardUI.targets.Count > 0)
         {
+            GameEvents.RaiseTooltipHide();
             played = true;
             cardUI.Play();
         }

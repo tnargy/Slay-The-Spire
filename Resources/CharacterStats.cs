@@ -3,13 +3,13 @@ using System;
 
 public partial class CharacterStats : Stats
 {
-    [Export] CardPile startingDeck;
-    [Export] int cardsPerTurn;
+    [Export] public CardPile startingDeck;
+    [Export] public int cardsPerTurn;
     [Export] public int maxMana;
 
-    private CardPile deck;
-    private CardPile discardPile;
-    private CardPile drawPile;
+    public CardPile deck;
+    public CardPile discardPile;
+    public CardPile drawPile;
 
     private int _mana;
     public int Mana

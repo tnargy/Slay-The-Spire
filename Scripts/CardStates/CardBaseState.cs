@@ -12,6 +12,7 @@ public partial class CardBaseState : CardState
         cardUI.panel.Set("theme_override_styles/panel", GameConstants.BASE_STYLEBOX);
         CardUI.RaiseReparentRequested(cardUI);
         cardUI.PivotOffset = Vector2.Zero;
+        GameEvents.RaiseTooltipHide();
     }
 
     public override void OnGUIInput(InputEvent @event)
@@ -28,11 +29,13 @@ public partial class CardBaseState : CardState
     {
         if (!cardUI.Playable || cardUI.disabled) { return; }
         cardUI.panel.Set("theme_override_styles/panel", GameConstants.HOVER_STYLEBOX);
+        GameEvents.RaiseTooltipRequested(cardUI.card);
     }
 
     public override void OnMouseExited()
     {
         if (!cardUI.Playable || cardUI.disabled) { return; }
         cardUI.panel.Set("theme_override_styles/panel", GameConstants.BASE_STYLEBOX);
+        GameEvents.RaiseTooltipHide();
     }
 }

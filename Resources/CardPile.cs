@@ -9,10 +9,10 @@ public partial class CardPile : Resource
     public event Action<int> OnCardPileChanged;
     private void RaiseCardPileChanged(int pileSize) => OnCardPileChanged?.Invoke(pileSize);
 
-    bool IsEmpty() => cards.Length == 0;
-    void Shuffle() => cards = cards.OrderBy(x=> Random.Shared.Next()).ToArray();
+    public bool IsEmpty() => cards.Length == 0;
+    public void Shuffle() => cards = cards.OrderBy(x=> Random.Shared.Next()).ToArray();
 
-    Card DrawCard()
+    public Card DrawCard()
     {
         Card draw = cards.First();
         cards = cards.Skip(1).ToArray();
@@ -20,13 +20,13 @@ public partial class CardPile : Resource
         return draw;
     }
 
-    void AddCard(Card card)
+    public void AddCard(Card card)
     {
         cards.Append(card);
         RaiseCardPileChanged(cards.Length);
     }
     
-    void Clear()
+    public void Clear()
     {
         Array.Clear(cards);
         RaiseCardPileChanged(cards.Length);

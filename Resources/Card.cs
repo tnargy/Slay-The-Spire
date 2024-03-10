@@ -14,7 +14,7 @@ public partial class Card : Resource
     
     [ExportGroup("Card Visuals")]
     [Export] public Texture2D icon;
-    [Export(PropertyHint.MultilineText)] string tooltopText;
+    [Export(PropertyHint.MultilineText)] public string tooltopText;
 
     public bool IsSingleTargeted() => target == Target.SINGLE_ENEMY;
 

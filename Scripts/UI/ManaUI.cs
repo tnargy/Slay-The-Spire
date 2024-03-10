@@ -2,19 +2,29 @@ using Godot;
 
 public partial class ManaUI : Panel
 {
-    [Export] public CharacterStats characterStats;
+    [Export] private CharacterStats _characterStats;
+    public CharacterStats CharStats
+    {
+        get => _characterStats;
+        set
+        {
+            _characterStats = value;
+        }
+    }
     Label manaLabel;
 
-    public override void _Ready()
+    public override async void _Ready()
     {
         manaLabel = GetNode<Label>("Label");
+        await ToSignal(Owner, SignalName.Ready);
         HandleStatsChanged();
-        characterStats.OnStatsChanged += HandleStatsChanged;
+        CharStats.OnStatsChanged += HandleStatsChanged;
+        // GetTree().CreateTimer(2).Timeout += () => characterStats.Mana = 2;
     }
 
     private void HandleStatsChanged()
     {
-        manaLabel.Text = $"{characterStats.Mana}/{characterStats.maxMana}";
+        manaLabel.Text = $"{CharStats.Mana}/{CharStats.maxMana}";
     }
 
 }
