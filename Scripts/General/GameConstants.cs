@@ -21,4 +21,5 @@ public class GameConstants
 
     // Player
     public const float HAND_DRAW_INTERVAL = 0.25f;
+    public const float HAND_DISCARD_INTERVAL = 0.25f;
 }

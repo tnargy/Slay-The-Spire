@@ -20,5 +20,9 @@ public class GameEvents
 
     // Player Related
     public static event Action OnHandDrawn;
+    public static event Action OnHandDiscarded;
+    public static event Action OnEndTurn;
     public static void RaiseHandDrawn () => OnHandDrawn?.Invoke();
+    public static void RaiseHandDiscarded () => OnHandDiscarded?.Invoke();
+    public static void RaiseEndTurn () => OnEndTurn?.Invoke();
 }

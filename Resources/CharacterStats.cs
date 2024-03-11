@@ -28,7 +28,7 @@ public partial class CharacterStats : Stats
 
     public override Resource CreateInstance()
     {
-        CharacterStats instance = (CharacterStats)this.Duplicate();
+        CharacterStats instance = (CharacterStats)Duplicate();
         instance.Health = maxHealth;
         instance.Block = 0;
         instance.ResetMana();

@@ -1,10 +1,11 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public partial class CardPile : Resource
 {
-    [Export] Card[] cards;
+    [Export] public Card[] cards;
 
     public event Action<int> OnCardPileChanged;
     private void RaiseCardPileChanged(int pileSize) => OnCardPileChanged?.Invoke(pileSize);
@@ -22,7 +23,11 @@ public partial class CardPile : Resource
 
     public void AddCard(Card card)
     {
-        cards.Append(card);
+        if (cards == null)
+        {
+            cards = new Card[] { card };
+        }
+        cards = cards.Append(card).ToArray();
         RaiseCardPileChanged(cards.Length);
     }
     

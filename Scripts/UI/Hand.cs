@@ -30,6 +30,19 @@ public partial class Hand : HBoxContainer
         newCardUI.CharStats = CharStats;
     }
 
+    public void DiscardCard(CardUI cardUI)
+    {
+        cardUI.QueueFree();
+    }
+
+    public void DisableHand()
+    {
+        foreach (CardUI item in GetChildren())
+        {
+            item.disabled = true;
+        }   
+    }
+
     private void HandleReparentRequest(CardUI child)
     {
         child.disabled = true;

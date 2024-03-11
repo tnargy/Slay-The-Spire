@@ -8,15 +8,16 @@ public partial class Player : Node
         get => _stats;
         set
         {
-            _stats = (CharacterStats)value.CreateInstance();
+            _stats = value;
         }
     }
 
     [Export] Sprite2D sprite2D;
     [Export] StatsUI statsUI;
 
-    public override void _Ready()
+    public override async void _Ready()
     {
+        await ToSignal(Owner, SignalName.Ready);
         UpdateCharacter();
         Stats.OnStatsChanged += UpdateCharacter;
     }
