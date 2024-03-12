@@ -7,15 +7,13 @@ public partial class Block : Effects
         foreach (var target in targets)
         {
             if (target == null) { continue; }
-            if (target is Enemy)
+            if (target is Enemy enemy)
             {
-                Enemy enemy = (Enemy)target;
-                enemy.Stats.Block += ammount;
+                enemy.Stats.Block += amount;
             }
-            else if (target is Player)
+            else if (target is Player player)
             {
-                Player player = (Player)target;
-                player.Stats.Block += ammount;
+                player.Stats.Block += amount;
             }
         }
     }

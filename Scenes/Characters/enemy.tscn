@@ -6,13 +6,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgapg"]
 
-[node name="Enemy" type="Area2D" node_paths=PackedStringArray("sprite2D", "selected", "statsUI") groups=["Enemies"]]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("sprite2D", "statsUI", "selected") groups=["Enemies"]]
 scale = Vector2(4, 4)
 collision_layer = 4
 script = ExtResource("1_lkr61")
 sprite2D = NodePath("Sprite2D")
-selected = NodePath("Selected")
 statsUI = NodePath("StatsUI")
+selected = NodePath("Selected")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

@@ -19,7 +19,6 @@ public partial class ManaUI : Panel
         await ToSignal(Owner, SignalName.Ready);
         HandleStatsChanged();
         CharStats.OnStatsChanged += HandleStatsChanged;
-        // GetTree().CreateTimer(2).Timeout += () => characterStats.Mana = 2;
     }
 
     private void HandleStatsChanged()

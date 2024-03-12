@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0j5akna0cvjm"]
+[gd_scene load_steps=16 format=3 uid="uid://0j5akna0cvjm"]
 
 [ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="1_c866d"]
 [ext_resource type="Script" path="res://Scripts/Battle.cs" id="1_j1ws3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b83tepqvqdk38" path="res://Scenes/Characters/player.tscn" id="3_7l36r"]
 [ext_resource type="Resource" uid="uid://cf0wa883w5t1i" path="res://Resources/Enemy/Crab/crab_enemy.tres" id="3_wj3f0"]
 [ext_resource type="Resource" uid="uid://bqtc1lkmaqlhn" path="res://Resources/Characters/Warrior/Warrior.tres" id="4_exrep"]
+[ext_resource type="Script" path="res://Scripts/Characters/EnemyHandler.cs" id="4_meax3"]
 [ext_resource type="Script" path="res://Scripts/UI/BattleUI.cs" id="7_1ec25"]
 [ext_resource type="Script" path="res://Scripts/Characters/PlayerHandler.cs" id="8_w8ejo"]
 [ext_resource type="PackedScene" uid="uid://dpp5l6na7sdgw" path="res://Scenes/UI/mana_ui.tscn" id="11_wu3pj"]
@@ -37,13 +38,16 @@ position = Vector2(575.5, 206.5)
 shape = SubResource("RectangleShape2D_um6c0")
 debug_color = Color(0, 0.6, 0.701961, 0.231373)
 
-[node name="Enemy" parent="." instance=ExtResource("2_nu7rj")]
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_meax3")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(853, 302)
 scale = Vector2(1, 1)
 Stats = ExtResource("3_wj3f0")
 
 [node name="Player" parent="." instance=ExtResource("3_7l36r")]
-position = Vector2(191, 276)
+position = Vector2(191, 296)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_0j4dx")]
 

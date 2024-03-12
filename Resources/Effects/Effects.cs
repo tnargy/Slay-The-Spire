@@ -2,6 +2,6 @@ using Godot;
 
 public partial class Effects : RefCounted
 {
-    public int ammount;
+    public int amount;
     public virtual void Execute(Node[] targets) {}
 }

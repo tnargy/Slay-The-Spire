@@ -7,15 +7,13 @@ public partial class Damage : Effects
         foreach (var target in targets)
         {
             if (target == null) { continue; }
-            if (target is Enemy)
+            if (target is Enemy enemy)
             {
-                Enemy enemy = (Enemy)target;
-                enemy.TakeDamage(ammount);
+                enemy.TakeDamage(amount);
             }
-            else if (target is Player)
+            else if (target is Player player)
             {
-                Player player = (Player)target;
-                player.TakeDamage(ammount);
+                player.TakeDamage(amount);
             }
         }
     }

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Player : Node
+public partial class Player : Node2D
 {
    private CharacterStats _stats;
     [Export] public CharacterStats Stats
@@ -24,6 +24,7 @@ public partial class Player : Node
 
     void UpdateCharacter()
     {
+        if (!IsInstanceValid(this)) { return; }
         sprite2D.Texture = Stats.art;
         statsUI.UpdateStats(Stats);
     }
@@ -31,6 +32,10 @@ public partial class Player : Node
     public void TakeDamage(int damage)
     {
         Stats.TakeDamage(damage);
-        if (Stats.Health <= 0) { QueueFree(); }
+        if (Stats.Health <= 0)
+        {
+            GameEvents.RaisePlayerDied(); 
+            QueueFree(); 
+        }
     }
 }
