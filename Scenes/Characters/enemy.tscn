@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://3goa2recbk5h"]
+[gd_scene load_steps=6 format=3 uid="uid://3goa2recbk5h"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Enemy.cs" id="1_lkr61"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_lkr61"]
 [ext_resource type="Texture2D" uid="uid://y4d2y1qgggmf" path="res://Assets/Tiny Dungeon/Tiles/tile_0060.png" id="2_rntus"]
 [ext_resource type="PackedScene" uid="uid://cuqaf1t07gil7" path="res://Scenes/UI/stats_ui.tscn" id="3_lulpx"]
+[ext_resource type="PackedScene" uid="uid://drss5grpo1bj2" path="res://Scenes/UI/intent_ui.tscn" id="4_euvgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgapg"]
 
-[node name="Enemy" type="Area2D" node_paths=PackedStringArray("sprite2D", "statsUI", "selected") groups=["Enemies"]]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("sprite2D", "statsUI", "intentUI", "selected") groups=["Enemies"]]
 scale = Vector2(4, 4)
 collision_layer = 4
 script = ExtResource("1_lkr61")
 sprite2D = NodePath("Sprite2D")
 statsUI = NodePath("StatsUI")
+intentUI = NodePath("IntentUI")
 selected = NodePath("Selected")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,6 +33,10 @@ offset_left = -97.5
 offset_top = 36.25
 offset_right = 108.5
 offset_bottom = 73.25
+
+[node name="IntentUI" parent="." instance=ExtResource("4_euvgi")]
+offset_top = -80.5
+offset_bottom = -40.5
 
 [connection signal="area_entered" from="." to="." method="HandleAreaEntered"]
 [connection signal="area_exited" from="." to="." method="HandleAreaExited"]

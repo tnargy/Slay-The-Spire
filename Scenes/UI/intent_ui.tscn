@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://drss5grpo1bj2"]
+
+[ext_resource type="Script" path="res://Scripts/UI/IntentUI.cs" id="1_0hc63"]
+[ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="1_ydmc2"]
+
+[node name="IntentUI" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.5
+offset_right = 25.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_0hc63")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("1_ydmc2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Number" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1

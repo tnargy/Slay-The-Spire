@@ -23,6 +23,11 @@ window/size/resizable=false
 
 project/assembly_name="Slay The Spire"
 
+[gui]
+
+theme/custom="res://main_theme.tres"
+theme/custom_font="res://Assets/Goldman-Regular.ttf"
+
 [input]
 
 left_mouse={

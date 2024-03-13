@@ -36,7 +36,7 @@ public partial class CardUI : Control
 	public HashSet<Area2D> targets { get; private set; }
     public Control parent { get; private set; }
 	public Tween tween {get; private set; }
-	public int origIndex;
+	public int origIndex = 0;
 
 	private bool _playable = true;
 	public bool Playable
@@ -67,7 +67,6 @@ public partial class CardUI : Control
 
     public override void _Ready()
     {
-		origIndex = GetIndex();
 		panel = GetNode<Panel>("Panel");
 		cost = GetNode<Label>("Cost");
 		icon = GetNode<TextureRect>("Icon");

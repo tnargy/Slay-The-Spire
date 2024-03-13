@@ -4,6 +4,7 @@ public partial class EnemyAction : Node
 {
     public enum Type { CONDITIONAL, CHANCE_BASED }
 
+    [Export] public Intent intent;
     [Export] public Type ActionType { get; private set; }
     [Export(PropertyHint.Range, "0.0, 10.0, 0.1")] public float chanceWeight = 0;
 

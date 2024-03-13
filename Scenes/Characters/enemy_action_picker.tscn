@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5idqvy54na7b"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/EnemyActionPicker.cs" id="1_7m2qd"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyActionPicker.cs" id="1_7m2qd"]
 
 [node name="EnemyActionPicker" type="Node"]
 script = ExtResource("1_7m2qd")

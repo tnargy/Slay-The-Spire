@@ -14,6 +14,7 @@ public partial class Enemy : Area2D
 
     [Export] Sprite2D sprite2D;
     [Export] StatsUI statsUI;
+    [Export] IntentUI intentUI;
     [Export] Sprite2D selected;
 
     EnemyActionPicker enemyAI;
@@ -24,6 +25,10 @@ public partial class Enemy : Area2D
         set
         {
             _currentAction = value;
+            if (_currentAction != null) 
+            { 
+                intentUI.UpdateIntent(CurrentAction.intent);
+            }
         }
     }
     
@@ -33,6 +38,7 @@ public partial class Enemy : Area2D
     public override void _Ready()
     {
         UpdateCharacter();
+        SetupAI();
         Stats.OnStatsChanged += UpdateCharacter;
         Stats.OnStatsChanged += UpdateAction;
     }
@@ -58,7 +64,6 @@ public partial class Enemy : Area2D
     {
         if (!IsInstanceValid(this)) { return; }
         sprite2D.Texture = Stats.art;
-        SetupAI();
         statsUI.UpdateStats(Stats);
     }
 
@@ -77,10 +82,12 @@ public partial class Enemy : Area2D
 
     void SetupAI()
     {
-        if (enemyAI != null) enemyAI.QueueFree();
-        EnemyActionPicker newAI = (EnemyActionPicker)Stats.ai.Instantiate();
-        AddChild(newAI);
-        enemyAI = newAI;
-        enemyAI.Enemy = this;
+        if (enemyAI == null) 
+        {
+            EnemyActionPicker newAI = (EnemyActionPicker)Stats.ai.Instantiate();
+            AddChild(newAI);
+            enemyAI = newAI;
+            enemyAI.Enemy = this;
+        }
     }
 }
