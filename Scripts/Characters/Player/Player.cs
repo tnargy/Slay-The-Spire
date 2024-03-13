@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class Player : Node2D
@@ -31,11 +32,18 @@ public partial class Player : Node2D
 
     public void TakeDamage(int damage)
     {
-        Stats.TakeDamage(damage);
-        if (Stats.Health <= 0)
+        Tween tween = CreateTween();
+        tween.TweenCallback(Callable.From(() => Shaker.Shake(this, 16, 0.15f)));
+        tween.TweenCallback(Callable.From(() => Stats.TakeDamage(damage)));
+        tween.TweenInterval(0.2);
+
+        tween.Finished += () => 
         {
-            GameEvents.RaisePlayerDied(); 
-            QueueFree(); 
-        }
+            if (Stats.Health <= 0)
+            {
+                GameEvents.RaisePlayerDied(); 
+                QueueFree(); 
+            }
+        };
     }
 }

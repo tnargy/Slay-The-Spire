@@ -35,8 +35,10 @@ offset_right = 108.5
 offset_bottom = 73.25
 
 [node name="IntentUI" parent="." instance=ExtResource("4_euvgi")]
-offset_top = -80.5
-offset_bottom = -40.5
+offset_left = -27.0
+offset_top = -73.5
+offset_right = 27.0
+offset_bottom = -33.5
 
 [connection signal="area_entered" from="." to="." method="HandleAreaEntered"]
 [connection signal="area_exited" from="." to="." method="HandleAreaExited"]
