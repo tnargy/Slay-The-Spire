@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c888sso8w0d0n"]
+
+[ext_resource type="Script" path="res://Scripts/General/SoundPlayer.cs" id="1_jv30a"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_jv30a")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

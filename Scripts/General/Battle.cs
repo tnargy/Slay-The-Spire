@@ -1,8 +1,8 @@
-using System;
 using Godot;
 
 public partial class Battle : Node2D
 {
+    [Export] AudioStream music;
     [Export] private CharacterStats _characterStats;
     public CharacterStats CharStats
     {
@@ -17,9 +17,11 @@ public partial class Battle : Node2D
     PlayerHandler playerHandler;
     Player player;
     EnemyHandler enemyHandler;
+    SoundPlayer MusicPlayer;
 
     public override void _Ready()
     {
+        MusicPlayer = GetNode<SoundPlayer>("/root/MusicPlayer");
         battleUI = GetNode<BattleUI>("BattleUI");
         playerHandler = GetNode<PlayerHandler>("PlayerHandler");
         player = GetNode<Player>("Player");
@@ -64,6 +66,7 @@ public partial class Battle : Node2D
 
     private void StartBattle(CharacterStats stats)
     {
+        MusicPlayer.Play(music, true);
         enemyHandler.ResetEnemyActions();
         playerHandler.StartBattle(stats);
     }

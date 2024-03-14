@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bghvehx1abp7"]
 
-[ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://main_theme.tres" id="1_rj5kb"]
+[ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://Resources/General/main_theme.tres" id="1_rj5kb"]
 [ext_resource type="Script" path="res://Scripts/UI/Tooltip.cs" id="2_r1yij"]
 [ext_resource type="Texture2D" uid="uid://drr3w5edg4ysk" path="res://Assets/Tiny Dungeon/Tiles/tile_0119.png" id="2_vutxg"]
 

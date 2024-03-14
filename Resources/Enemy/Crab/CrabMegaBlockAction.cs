@@ -20,7 +20,11 @@ public partial class CrabMegaBlockAction : EnemyAction
     {
         if (enemy == null) { return; }
 
-        Block blockEffect = new() { amount = block };
+        Block blockEffect = new()
+        {
+            amount = block,
+            sound = sound
+        };
         Node[] targets = new Node[] { enemy };
         blockEffect.Execute(targets);
 

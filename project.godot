@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/battle.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://Assets/Tiny Dungeon/Tiles/tile_0112.png"
 
+[autoload]
+
+MusicPlayer="*res://Scenes/music_player.tscn"
+SFXPlayer="*res://Scenes/sfx_player.tscn"
+
 [display]
 
 window/size/resizable=false
@@ -25,7 +30,7 @@ project/assembly_name="Slay The Spire"
 
 [gui]
 
-theme/custom="res://main_theme.tres"
+theme/custom="res://Resources/General/main_theme.tres"
 theme/custom_font="res://Assets/Goldman-Regular.ttf"
 
 [input]

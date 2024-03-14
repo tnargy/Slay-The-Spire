@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ct24wa1tvpvnj"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://ct24wa1tvpvnj"]
 
 [ext_resource type="Texture2D" uid="uid://drr3w5edg4ysk" path="res://Assets/Tiny Dungeon/Tiles/tile_0119.png" id="1_30llb"]
 [ext_resource type="Script" path="res://Resources/Characters/Warrior/Cards/WarriorAxeAttack.cs" id="1_y80v3"]
+[ext_resource type="AudioStream" uid="uid://b5cbrjfptbpff" path="res://Assets/SFX/sword1.ogg" id="3_0pf4p"]
 
 [resource]
 script = ExtResource("1_y80v3")
@@ -11,3 +12,4 @@ target = 1
 cost = 1
 icon = ExtResource("1_30llb")
 tooltopText = "[center]Deal [color=\"ff0000\"]6[/color] damage.[/center]"
+sound = ExtResource("3_0pf4p")

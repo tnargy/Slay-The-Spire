@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://2buwq5fkmjmi"]
 
-[ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://main_theme.tres" id="1_tattw"]
+[ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://Resources/General/main_theme.tres" id="1_tattw"]
 [ext_resource type="Script" path="res://Scripts/UI/CardUI.cs" id="2_rj080"]
 [ext_resource type="Script" path="res://Scripts/General/StateMachine.cs" id="3_7d07h"]
 [ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="3_l8x7i"]

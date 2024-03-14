@@ -15,6 +15,7 @@ public partial class Card : Resource
     [ExportGroup("Card Visuals")]
     [Export] public Texture2D icon;
     [Export(PropertyHint.MultilineText)] public string tooltopText;
+    [Export] public AudioStream sound;
 
     public bool IsSingleTargeted() => target == Target.SINGLE_ENEMY;
 

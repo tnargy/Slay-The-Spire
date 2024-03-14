@@ -13,7 +13,11 @@ public partial class CrabAttackAction : EnemyAction
 
         Vector2 start = enemy.GlobalPosition;
         Vector2 end = target.GlobalPosition + Vector2.Right * 64;
-        Damage damageEffect = new() { amount = damage };
+        Damage damageEffect = new()
+        {
+            amount = damage,
+            sound = sound
+        };
         Node[] targets = new Node[] { target };
 
         Tween tween = enemy.CreateTween().SetTrans(Tween.TransitionType.Quint);
