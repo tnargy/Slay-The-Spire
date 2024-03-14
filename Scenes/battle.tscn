@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0j5akna0cvjm"]
+[gd_scene load_steps=17 format=3 uid="uid://0j5akna0cvjm"]
 
 [ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="1_c866d"]
 [ext_resource type="Script" path="res://Scripts/General/Battle.cs" id="1_j1ws3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dpp5l6na7sdgw" path="res://Scenes/UI/mana_ui.tscn" id="11_wu3pj"]
 [ext_resource type="PackedScene" uid="uid://bghvehx1abp7" path="res://Scenes/UI/tooltip.tscn" id="12_55bfs"]
 [ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://main_theme.tres" id="13_nfq77"]
+[ext_resource type="Script" path="res://Scripts/UI/DamageFlash.cs" id="15_gnucy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um6c0"]
 size = Vector2(1153, 415)
@@ -95,3 +96,22 @@ grow_vertical = 0
 theme = ExtResource("13_nfq77")
 disabled = true
 text = "END TURN"
+
+[node name="DamageFlash" type="CanvasLayer" parent="." node_paths=PackedStringArray("timer", "colorRect")]
+layer = 2
+script = ExtResource("15_gnucy")
+timer = NodePath("Timer")
+colorRect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="DamageFlash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="DamageFlash"]
+wait_time = 0.1
+one_shot = true

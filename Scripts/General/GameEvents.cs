@@ -22,10 +22,12 @@ public class GameEvents
     public static event Action OnHandDrawn;
     public static event Action OnHandDiscarded;
     public static event Action OnEndTurn;
+    public static event Action OnPlayerHit;
     public static event Action OnPlayerDied;
     public static void RaiseHandDrawn () => OnHandDrawn?.Invoke();
     public static void RaiseHandDiscarded () => OnHandDiscarded?.Invoke();
     public static void RaiseEndTurn () => OnEndTurn?.Invoke();
+    public static void RaisePlayerHit () => OnPlayerHit?.Invoke();
     public static void RaisePlayerDied () => OnPlayerDied?.Invoke();
 
     // Enemy Related

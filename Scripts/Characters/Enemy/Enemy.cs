@@ -76,18 +76,22 @@ public partial class Enemy : Area2D
 
     public void TakeDamage(int damage)
     {
+        sprite2D.Material = GameConstants.WHITE_SPRITE_MATERIAL;
+
         Tween tween = CreateTween();
         tween.TweenCallback(Callable.From(() => Shaker.Shake(this, 16, 0.15f)));
         tween.TweenCallback(Callable.From(() => Stats.TakeDamage(damage)));
-        tween.TweenInterval(0.2);
+        tween.TweenInterval(0.17);
 
         tween.Finished += () => 
         { 
+            sprite2D.Material = null;
             if (Stats.Health <= 0) 
             { 
                 QueueFree(); 
             }
         };
+
     }
 
     void SetupAI()

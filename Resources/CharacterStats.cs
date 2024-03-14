@@ -37,4 +37,11 @@ public partial class CharacterStats : Stats
         instance.drawPile = new();
         return instance;
     }
+
+    public override void TakeDamage(int damage)
+    {
+        var initHealth = Health;
+        base.TakeDamage(damage);
+        if (Health < initHealth) GameEvents.RaisePlayerHit();
+    }
 }

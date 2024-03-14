@@ -33,7 +33,7 @@ public partial class Stats : Resource
 
     public void Heal(int potion) => Health += potion;
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (damage <= 0) { return; }
 
