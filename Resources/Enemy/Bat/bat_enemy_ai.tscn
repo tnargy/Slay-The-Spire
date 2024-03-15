@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4b2ka24gap5q"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyActionPicker.cs" id="1_w8gjl"]
+[ext_resource type="Script" path="res://Resources/Enemy/Bat/BatAttackAction.cs" id="2_6rsr4"]
+[ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="3_0dmao"]
+[ext_resource type="Script" path="res://Resources/Intent.cs" id="4_7v17o"]
+[ext_resource type="AudioStream" uid="uid://b5cbrjfptbpff" path="res://Assets/SFX/sword1.ogg" id="5_t0as0"]
+[ext_resource type="Script" path="res://Resources/Enemy/Bat/BatBlockAction.cs" id="6_o6hwt"]
+[ext_resource type="AudioStream" uid="uid://bqippfbh4i2ho" path="res://Assets/SFX/stoneHit2.ogg" id="7_8d0cn"]
+[ext_resource type="Texture2D" uid="uid://d3r580qa2wqj4" path="res://Assets/Tiny Dungeon/Tiles/tile_0101.png" id="7_jgbfr"]
+
+[sub_resource type="Resource" id="Resource_j07uk"]
+script = ExtResource("4_7v17o")
+number = "2x4"
+icon = ExtResource("3_0dmao")
+
+[sub_resource type="Resource" id="Resource_vrx7q"]
+script = ExtResource("4_7v17o")
+number = "4"
+icon = ExtResource("7_jgbfr")
+
+[node name="BatEnemyAI" type="Node"]
+script = ExtResource("1_w8gjl")
+
+[node name="BatAttackAction" type="Node" parent="."]
+script = ExtResource("2_6rsr4")
+damage = 4
+intent = SubResource("Resource_j07uk")
+ActionType = 1
+sound = ExtResource("5_t0as0")
+chanceWeight = 3.0
+
+[node name="BatBlockAction" type="Node" parent="."]
+script = ExtResource("6_o6hwt")
+block = 4
+intent = SubResource("Resource_vrx7q")
+ActionType = 1
+sound = ExtResource("7_8d0cn")
+chanceWeight = 1.0

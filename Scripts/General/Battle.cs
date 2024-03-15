@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using Godot;
 
 public partial class Battle : Node2D
@@ -34,26 +35,21 @@ public partial class Battle : Node2D
         battleUI.CharStats = new_stats;
         player.Stats = new_stats;
 
+        enemyHandler.ChildOrderChanged += HandleEnemyChanges;
         GameEvents.OnEnemyTurnEnded += HandleEnemyTurnEnded;
         GameEvents.OnEndTurn += () => playerHandler.EndTurn();
         GameEvents.OnHandDiscarded += () => enemyHandler.StartTurn();
-        GameEvents.OnPlayerDied += HandlePlayerDied;
-        enemyHandler.ChildOrderChanged += HandleEnemyChanges;
+        GameEvents.OnPlayerDied += 
+            () => GameEvents.RaiseBattleOverScreen("Game Over", BattleOverPanel.Type.LOSE);
 
         StartBattle(new_stats);
     }
-
-    private void HandlePlayerDied()
-    {
-        GD.Print("Game Over");
-    }
-
 
     private void HandleEnemyChanges()
     {
         if (enemyHandler.GetChildCount() == 0)
         {
-            GD.Print("Victory");
+            GameEvents.RaiseBattleOverScreen("Victory", BattleOverPanel.Type.WIN);
         }
     }
 
@@ -66,6 +62,7 @@ public partial class Battle : Node2D
 
     private void StartBattle(CharacterStats stats)
     {
+        GetTree().Paused = false;
         MusicPlayer.Play(music, true);
         enemyHandler.ResetEnemyActions();
         playerHandler.StartBattle(stats);

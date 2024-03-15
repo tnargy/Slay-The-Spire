@@ -35,4 +35,8 @@ public class GameEvents
     public static event Action OnEnemyTurnEnded;
     public static void RaiseEnemyActionFinsihed (Enemy enemy) => OnEnemyActionFinished?.Invoke(enemy);
     public static void RaiseEnemyTurnEnded () => OnEnemyTurnEnded?.Invoke();
+
+    // Battle Related
+    public static event Action<string, BattleOverPanel.Type> OnBattleOverScreenRequested;
+    public static void RaiseBattleOverScreen (string text, BattleOverPanel.Type type) => OnBattleOverScreenRequested?.Invoke(text, type);
 }

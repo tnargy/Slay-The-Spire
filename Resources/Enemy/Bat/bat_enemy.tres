@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dxwxp1tet5r35"]
+
+[ext_resource type="PackedScene" uid="uid://c4b2ka24gap5q" path="res://Resources/Enemy/Bat/bat_enemy_ai.tscn" id="1_r7a73"]
+[ext_resource type="Texture2D" uid="uid://b8qhjg6h5e0qr" path="res://Assets/Tiny Dungeon/Tiles/tile_0120.png" id="1_w55pk"]
+[ext_resource type="Script" path="res://Resources/EnemyStats.cs" id="2_dho8r"]
+
+[resource]
+script = ExtResource("2_dho8r")
+ai = ExtResource("1_r7a73")
+maxHealth = 8
+art = ExtResource("1_w55pk")

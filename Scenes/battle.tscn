@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0j5akna0cvjm"]
+[gd_scene load_steps=20 format=3 uid="uid://0j5akna0cvjm"]
 
 [ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="1_c866d"]
 [ext_resource type="Script" path="res://Scripts/General/Battle.cs" id="1_j1ws3"]
@@ -11,11 +11,13 @@
 [ext_resource type="Resource" uid="uid://bqtc1lkmaqlhn" path="res://Resources/Characters/Warrior/Warrior.tres" id="4_exrep"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyHandler.cs" id="4_meax3"]
 [ext_resource type="Script" path="res://Scripts/UI/BattleUI.cs" id="7_1ec25"]
+[ext_resource type="Resource" uid="uid://dxwxp1tet5r35" path="res://Resources/Enemy/Bat/bat_enemy.tres" id="8_sw7du"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerHandler.cs" id="8_w8ejo"]
 [ext_resource type="PackedScene" uid="uid://dpp5l6na7sdgw" path="res://Scenes/UI/mana_ui.tscn" id="11_wu3pj"]
 [ext_resource type="PackedScene" uid="uid://bghvehx1abp7" path="res://Scenes/UI/tooltip.tscn" id="12_55bfs"]
 [ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://Resources/General/main_theme.tres" id="13_nfq77"]
 [ext_resource type="Script" path="res://Scripts/UI/DamageFlash.cs" id="15_gnucy"]
+[ext_resource type="PackedScene" uid="uid://6vufj08f0u17" path="res://Scenes/UI/battle_over_panel.tscn" id="17_xg5ee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um6c0"]
 size = Vector2(1153, 415)
@@ -41,18 +43,28 @@ position = Vector2(575.5, 206.5)
 shape = SubResource("RectangleShape2D_um6c0")
 debug_color = Color(0, 0.6, 0.701961, 0.231373)
 
-[node name="EnemyHandler" type="Node2D" parent="."]
-script = ExtResource("4_meax3")
-
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
-position = Vector2(853, 302)
-scale = Vector2(1, 1)
-Stats = ExtResource("3_wj3f0")
-
 [node name="Player" parent="." instance=ExtResource("3_7l36r")]
 position = Vector2(191, 296)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_0j4dx")]
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_meax3")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+position = Vector2(767, 251)
+scale = Vector2(1, 1)
+Stats = ExtResource("8_sw7du")
+
+[node name="Enemy2" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+position = Vector2(888, 333)
+scale = Vector2(1, 1)
+Stats = ExtResource("3_wj3f0")
+
+[node name="Enemy3" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+position = Vector2(1031, 253)
+scale = Vector2(1, 1)
+Stats = ExtResource("8_sw7du")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("8_w8ejo")
@@ -119,3 +131,9 @@ color = Color(1, 0, 0, 0)
 [node name="Timer" type="Timer" parent="DamageFlash"]
 wait_time = 0.1
 one_shot = true
+
+[node name="BattleOverLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BattleOverPanel" parent="BattleOverLayer" instance=ExtResource("17_xg5ee")]
+visible = false

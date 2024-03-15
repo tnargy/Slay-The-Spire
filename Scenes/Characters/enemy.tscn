@@ -33,6 +33,7 @@ offset_left = -97.5
 offset_top = 36.25
 offset_right = 108.5
 offset_bottom = 73.25
+alignment = 1
 
 [node name="IntentUI" parent="." instance=ExtResource("4_euvgi")]
 offset_left = -27.0
