@@ -51,17 +51,17 @@ position = Vector2(191, 296)
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_meax3")
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+[node name="BattEnemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(767, 251)
 scale = Vector2(1, 1)
 Stats = ExtResource("8_sw7du")
 
-[node name="Enemy2" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+[node name="CrabEnemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(888, 333)
 scale = Vector2(1, 1)
 Stats = ExtResource("3_wj3f0")
 
-[node name="Enemy3" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+[node name="BatEnemy2" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(1031, 253)
 scale = Vector2(1, 1)
 Stats = ExtResource("8_sw7du")
