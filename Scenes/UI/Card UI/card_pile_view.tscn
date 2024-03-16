@@ -1,0 +1,189 @@
+[gd_scene load_steps=5 format=3 uid="uid://devsd8puoakx8"]
+
+[ext_resource type="Script" path="res://Scripts/UI/CardPileView.cs" id="1_7v6y0"]
+[ext_resource type="PackedScene" uid="uid://df5oa0mkahgqg" path="res://Scenes/UI/Card UI/card_menu_ui.tscn" id="1_ui0hq"]
+[ext_resource type="PackedScene" uid="uid://c3ue4s78n68vr" path="res://Scenes/UI/Card UI/card_tooltip_popup.tscn" id="3_jwf4u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0qa4m"]
+font_size = 40
+
+[node name="CardPileView" type="Control" node_paths=PackedStringArray("title", "button", "cards")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7v6y0")
+title = NodePath("Background/MarginContainer/VBoxContainer/Title")
+button = NodePath("Button")
+cards = NodePath("Background/MarginContainer/VBoxContainer/ScrollContainer/Cards")
+cardPile = Object(GridContainer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":2,"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","theme_override_constants/h_separation":0,"theme_override_constants/v_separation":50,"columns":6,"script":null)
+
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47451)
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Discard Pile"
+label_settings = SubResource("LabelSettings_0qa4m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+
+[node name="Cards" type="GridContainer" parent="Background/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 50
+columns = 6
+
+[node name="CardMenuUI" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+
+[node name="CardMenuUI2" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI3" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI4" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI5" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI6" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI7" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI8" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI9" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI10" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI11" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI12" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI13" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI14" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI15" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI16" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI17" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="CardMenuUI18" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+layout_mode = 2
+panel = NodePath("../CardMenuUI/Visuals/Panel")
+cost = NodePath("../CardMenuUI/Visuals/Cost")
+icon = NodePath("../CardMenuUI/Visuals/Icon")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -244.0
+offset_top = 30.0
+offset_right = -44.0
+offset_bottom = 76.0
+grow_horizontal = 0
+text = "Go Back"
+
+[node name="CardTooltipPopup" parent="." instance=ExtResource("3_jwf4u")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

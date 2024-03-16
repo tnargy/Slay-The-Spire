@@ -12,9 +12,9 @@ public class GameConstants
     public const int NOTIFICATION_EXIT_STATE = 5002;
 
     // Stylebox
-    public static readonly StyleBoxFlat BASE_STYLEBOX = GD.Load<StyleBoxFlat>("res://Scenes/Card UI/card_base_stylebox.tres");
-    public static readonly StyleBoxFlat DRAG_STYLEBOX = GD.Load<StyleBoxFlat>("res://Scenes/Card UI/card_drag_stylebox.tres");
-    public static readonly StyleBoxFlat HOVER_STYLEBOX = GD.Load<StyleBoxFlat>("res://Scenes/Card UI/card_hover_stylebox.tres");
+    public static readonly StyleBoxFlat BASE_STYLEBOX = GD.Load<StyleBoxFlat>("res://Scenes/UI/Card UI/card_base_stylebox.tres");
+    public static readonly StyleBoxFlat DRAG_STYLEBOX = GD.Load<StyleBoxFlat>("res://Scenes/UI/Card UI/card_drag_stylebox.tres");
+    public static readonly StyleBoxFlat HOVER_STYLEBOX = GD.Load<StyleBoxFlat>("res://Scenes/UI/Card UI/card_hover_stylebox.tres");
     public static readonly Material WHITE_SPRITE_MATERIAL = GD.Load<Material>("res://Resources/General/white_sprite_material.tres");
 
     // Player
@@ -31,4 +31,5 @@ public class GameConstants
     public const string MAP_SCENE = "res://Scenes/Map/map.tscn";
     public const string SHOP_SCENE = "res://Scenes/Shop/shop.tscn";
     public const string TREASURE_SCENE = "res://Scenes/Treasure/treasure.tscn";
+    public const string CARD_MENU_UI_SCENE = "res://Scenes/UI/Card UI/card_menu_ui.tscn";
 }
