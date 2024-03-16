@@ -29,7 +29,7 @@ public partial class CardAimingState : CardState
             // Cancel
             cardUI.stateMachine.SwitchState<CardBaseState>();
         }
-        else if (@event.IsActionPressed(GameConstants.INPUT_LEFT_CLICK))
+        else if (@event.IsActionPressed(GameConstants.INPUT_LEFT_CLICK) || @event.IsActionReleased(GameConstants.INPUT_LEFT_CLICK))
         {
             // Release
             GetViewport().SetInputAsHandled();

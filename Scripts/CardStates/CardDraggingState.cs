@@ -2,6 +2,9 @@ using Godot;
 
 public partial class CardDraggingState : CardState
 {
+    const float DRAG_MINIMUM_THRESHOLD = 0.05f;
+    bool minimumDragTimeElapsed = false;
+
     protected override void EnterState()
     {
         cardUI.panel.Set("theme_override_styles/panel", GameConstants.DRAG_STYLEBOX);
@@ -11,6 +14,10 @@ public partial class CardDraggingState : CardState
             cardUI.Reparent(ui_layer);
         }
         GameEvents.RaiseCardDragStarted(cardUI);
+
+        minimumDragTimeElapsed = false;
+	    var thresholdTimer = GetTree().CreateTimer(DRAG_MINIMUM_THRESHOLD, false);
+	    thresholdTimer.Timeout += () => minimumDragTimeElapsed = true;
     }
 
     protected override void ExitState()
@@ -37,7 +44,7 @@ public partial class CardDraggingState : CardState
             // Return to Base
             cardUI.stateMachine.SwitchState<CardBaseState>();
         }
-        else if (@event.IsActionPressed(GameConstants.INPUT_LEFT_CLICK))
+        else if (@event.IsActionPressed(GameConstants.INPUT_LEFT_CLICK) || @event.IsActionReleased(GameConstants.INPUT_LEFT_CLICK) && minimumDragTimeElapsed)
         {
             // Release
             GetViewport().SetInputAsHandled();
