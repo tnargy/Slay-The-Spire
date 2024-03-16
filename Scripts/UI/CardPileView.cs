@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Godot;
 
 public partial class CardPileView : Control
@@ -7,7 +5,7 @@ public partial class CardPileView : Control
     [Export] Label title;
     [Export] Button button;
     [Export] GridContainer cards;
-    [Export] CardPile cardPile;
+    [Export] public CardPile cardPile;
 
     CardTooltipPopup cardTooltipPopup;
 
@@ -38,7 +36,7 @@ public partial class CardPileView : Control
         }
     }
 
-    private void ShowCurrentView(string title, bool shuffled = false)
+    public void ShowCurrentView(string title, bool shuffled = false)
     {
         foreach (Node card in cards.GetChildren())
         {
@@ -53,15 +51,15 @@ public partial class CardPileView : Control
     private void UpdateView(bool shuffled)
     {
         if (cardPile == null) { return; }
-        Card[] allCards = cardPile.cards.Clone() as Card[];
-        if (shuffled) { allCards = allCards.OrderBy(x=> Random.Shared.Next()).ToArray(); }
+        CardPile allCards = (CardPile)cardPile.Duplicate(true);
+        if (shuffled) { allCards.Shuffle(); }
 
-        foreach (Card card in allCards)
+        foreach (Card card in allCards.cards)
         {
             PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
             CardMenuUI newCard = (CardMenuUI)scene.Instantiate();
             cards.AddChild(newCard);
-            newCard.Card = card;
+            newCard.card = card;
             newCard.OnTooltipRequested += (card) => cardTooltipPopup.Show_Tooltip(card);
         }
 

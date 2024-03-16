@@ -42,6 +42,7 @@ public partial class Battle : Node2D
             () => GameEvents.RaiseBattleOverScreen("Game Over", BattleOverPanel.Type.LOSE);
 
         StartBattle(new_stats);
+        battleUI.InitCardPileUI();
     }
 
     private void HandleEnemyChanges()

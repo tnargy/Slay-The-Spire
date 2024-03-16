@@ -20,6 +20,7 @@ public partial class PlayerHandler : Node
         character = characterStats;
         character.drawPile = (CardPile)character.deck.Duplicate(true);
         character.drawPile.Shuffle();
+        character.discardPile.cards = new Card[0];
         StartTurn();
     }
 

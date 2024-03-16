@@ -11,7 +11,7 @@ public partial class CardMenuUI : CenterContainer
     [Export] TextureRect icon;
 
     [Export] Card _card;
-    public Card Card
+    public Card card
     {
         get => _card;
         set
@@ -26,7 +26,7 @@ public partial class CardMenuUI : CenterContainer
     {
         if (@event.IsActionPressed(GameConstants.INPUT_LEFT_CLICK))
         {
-            RaiseTooltipRequested(Card);
+            RaiseTooltipRequested(card);
         }
     }
     public void OnMouseEntered() => panel.Set("theme_override_styles/panel", GameConstants.HOVER_STYLEBOX);

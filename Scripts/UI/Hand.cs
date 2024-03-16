@@ -17,7 +17,7 @@ public partial class Hand : HBoxContainer
 
     public override void _Ready()
     {
-        cardUI = ResourceLoader.Load<PackedScene>("res://Scenes/Card UI/card_ui.tscn");
+        cardUI = ResourceLoader.Load<PackedScene>("res://Scenes/UI/Card UI/card_ui.tscn");
         CardUI.OnReparentRequest += HandleReparentRequest;
         GameEvents.OnCardPlayed += (card) => cardsPlayedThisTurn++;
     }

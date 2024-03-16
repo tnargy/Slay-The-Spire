@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcaxwy2jbx22q"]
+
+[ext_resource type="Texture2D" uid="uid://dipqoxcgrcppq" path="res://Assets/draw.png" id="1_41bx3"]
+[ext_resource type="Script" path="res://Scripts/UI/CardPileButton.cs" id="2_ilvsp"]
+
+[node name="CardPileButton" type="TextureButton"]
+offset_right = 65.0
+offset_bottom = 65.0
+texture_normal = ExtResource("1_41bx3")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_ilvsp")
