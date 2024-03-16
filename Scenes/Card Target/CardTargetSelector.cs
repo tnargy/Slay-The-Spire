@@ -4,6 +4,8 @@ using Godot;
 
 public partial class CardTargetSelector : Node2D
 {
+    const int ARC_POINTS = 8;
+
     [Export] private Area2D area2D;
     [Export] private Line2D arc;
     private CardUI currentCard;
@@ -33,10 +35,10 @@ public partial class CardTargetSelector : Node2D
         Vector2 target = GetLocalMousePosition();
         Vector2 distance = (target - start);
 
-        for (int i = 0; i < GameConstants.ARC_POINTS; i++)
+        for (int i = 0; i < ARC_POINTS; i++)
         {
-            double t = (1.0 / GameConstants.ARC_POINTS) * i;
-            float x = start.X + (distance.X / GameConstants.ARC_POINTS) * i;
+            double t = 1.0 / ARC_POINTS * i;
+            float x = start.X + distance.X / ARC_POINTS * i;
             float y = start.Y + (float)EaseOutCubic(t) * distance.Y;
             points.Add(new Vector2(x,y));
         }

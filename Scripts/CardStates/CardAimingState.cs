@@ -2,6 +2,7 @@ using Godot;
 
 public partial class CardAimingState : CardState
 {
+    const int MOUSE_Y_SNAPBACK_THRESHOLD = 600;
 
     protected override void EnterState()
     {
@@ -23,7 +24,7 @@ public partial class CardAimingState : CardState
     public override void OnInput(InputEvent @event)
     {
         // Cancel cast
-        bool mouseAtBottom = cardUI.GetGlobalMousePosition().Y > GameConstants.MOUSE_Y_SNAPBACK_THRESHOLD;
+        bool mouseAtBottom = cardUI.GetGlobalMousePosition().Y > MOUSE_Y_SNAPBACK_THRESHOLD;
         if ((@event is InputEventMouseMotion && mouseAtBottom) || @event.IsActionPressed(GameConstants.INPUT_RIGHT_CLICK))
         {
             // Cancel

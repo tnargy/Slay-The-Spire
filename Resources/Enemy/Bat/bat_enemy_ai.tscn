@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyActionPicker.cs" id="1_w8gjl"]
 [ext_resource type="Script" path="res://Resources/Enemy/Bat/BatAttackAction.cs" id="2_6rsr4"]
 [ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="3_0dmao"]
-[ext_resource type="Script" path="res://Resources/Intent.cs" id="4_7v17o"]
+[ext_resource type="Script" path="res://Resources/Enemy/Intent.cs" id="4_7v17o"]
 [ext_resource type="AudioStream" uid="uid://b5cbrjfptbpff" path="res://Assets/SFX/sword1.ogg" id="5_t0as0"]
 [ext_resource type="Script" path="res://Resources/Enemy/Bat/BatBlockAction.cs" id="6_o6hwt"]
 [ext_resource type="AudioStream" uid="uid://bqippfbh4i2ho" path="res://Assets/SFX/stoneHit2.ogg" id="7_8d0cn"]

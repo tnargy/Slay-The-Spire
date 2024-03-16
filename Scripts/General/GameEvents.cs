@@ -39,4 +39,26 @@ public class GameEvents
     // Battle Related
     public static event Action<string, BattleOverPanel.Type> OnBattleOverScreenRequested;
     public static void RaiseBattleOverScreen (string text, BattleOverPanel.Type type) => OnBattleOverScreenRequested?.Invoke(text, type);
+    public static event Action OnBattleWon;
+    public static void RaiseBattleWon () => OnBattleWon?.Invoke();
+
+    // Map Related
+    public static event Action OnMapExited;
+    public static void RaiseMapExited () => OnMapExited?.Invoke();
+    
+    // Shop Related
+    public static event Action OnShopExited;
+    public static void RaiseShopExited () => OnShopExited?.Invoke();
+    
+    // Campfire Related
+    public static event Action OnCampfireExited;
+    public static void RaiseCampfireExited () => OnCampfireExited?.Invoke();
+    
+    // BattleReward Related
+    public static event Action OnBattleRewardExited;
+    public static void RaiseBattleRewardExited () => OnBattleRewardExited?.Invoke();
+ 
+    // TreasureRoom Related
+    public static event Action OnTreasureRoomExited;
+    public static void RaiseTreasureRoomExited () => OnTreasureRoomExited?.Invoke();
 }

@@ -14,7 +14,7 @@ public partial class BattleOverPanel : Panel
         continueBtn = GetNode<Button>("%ContinueBtn");
         restartBtn = GetNode<Button>("%RestartBtn");
 
-        continueBtn.Pressed += () => GetTree().Quit();;
+        continueBtn.Pressed += () => GameEvents.RaiseBattleWon();
         restartBtn.Pressed += () => GetTree().ReloadCurrentScene();
         GameEvents.OnBattleOverScreenRequested += ShowScreen;
     }

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Resources/Enemy/Crab/CrabBlockAction.cs" id="3_5noit"]
 [ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="3_af5qi"]
 [ext_resource type="Script" path="res://Resources/Enemy/Crab/CrabMegaBlockAction.cs" id="4_4jj0o"]
-[ext_resource type="Script" path="res://Resources/Intent.cs" id="4_uqlrg"]
+[ext_resource type="Script" path="res://Resources/Enemy/Intent.cs" id="4_uqlrg"]
 [ext_resource type="AudioStream" uid="uid://b5cbrjfptbpff" path="res://Assets/SFX/sword1.ogg" id="5_84ku6"]
 [ext_resource type="Texture2D" uid="uid://d3r580qa2wqj4" path="res://Assets/Tiny Dungeon/Tiles/tile_0101.png" id="6_ehv52"]
 [ext_resource type="Texture2D" uid="uid://ngecaovmngdc" path="res://Assets/Tiny Dungeon/Tiles/tile_0102.png" id="6_yv25j"]

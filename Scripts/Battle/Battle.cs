@@ -1,4 +1,3 @@
-using System.Diagnostics.Tracing;
 using Godot;
 
 public partial class Battle : Node2D

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2flcspt6iadb" path="res://Resources/Enemy/Crab/crab_enemy_ai.tscn" id="1_is6os"]
 [ext_resource type="Texture2D" uid="uid://cwrm05rnp1k0i" path="res://Assets/Tiny Dungeon/Tiles/tile_0110.png" id="1_nb701"]
-[ext_resource type="Script" path="res://Resources/EnemyStats.cs" id="2_av5fg"]
+[ext_resource type="Script" path="res://Resources/Enemy/EnemyStats.cs" id="2_av5fg"]
 
 [resource]
 script = ExtResource("2_av5fg")

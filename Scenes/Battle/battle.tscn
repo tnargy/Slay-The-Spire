@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://0j5akna0cvjm"]
 
 [ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="1_c866d"]
-[ext_resource type="Script" path="res://Scripts/General/Battle.cs" id="1_j1ws3"]
+[ext_resource type="Script" path="res://Scripts/Battle/Battle.cs" id="1_j1ws3"]
 [ext_resource type="Script" path="res://Scripts/UI/Hand.cs" id="2_m5pui"]
 [ext_resource type="PackedScene" uid="uid://3goa2recbk5h" path="res://Scenes/Characters/enemy.tscn" id="2_nu7rj"]
 [ext_resource type="AudioStream" uid="uid://cu1lq5oqsx63p" path="res://Assets/Music/Retro Mystic.ogg" id="2_x7rbm"]

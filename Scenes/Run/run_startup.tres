@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clt6nuid401id"]
+
+[ext_resource type="Script" path="res://Resources/RunStartup.cs" id="1_gnmek"]
+
+[resource]
+script = ExtResource("1_gnmek")
+runType = 0

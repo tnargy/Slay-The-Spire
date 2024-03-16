@@ -3,6 +3,12 @@ using System;
 
 public partial class CharacterStats : Stats
 {
+    [ExportGroup("Visuals")]
+    [Export] public string name;
+    [Export(PropertyHint.MultilineText)] public string desc;
+    [Export] public Texture2D portrait;
+
+    [ExportGroup("Gameplay Data")]
     [Export] public CardPile startingDeck;
     [Export] public int cardsPerTurn;
     [Export] public int maxMana;
