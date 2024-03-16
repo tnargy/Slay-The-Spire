@@ -1,7 +1,12 @@
 using Godot;
 
+    
+
 public partial class PlayerHandler : Node
 {
+    const float HAND_DRAW_INTERVAL = 0.25f;
+    const float HAND_DISCARD_INTERVAL = 0.25f;
+
     [Export] Hand hand;
     CharacterStats character;
 
@@ -38,7 +43,7 @@ public partial class PlayerHandler : Node
         {
             tween.TweenCallback(Callable.From(() => character.discardPile.AddCard(cardUI.card)));
             tween.TweenCallback(Callable.From(() => hand.DiscardCard(cardUI)));
-            tween.TweenInterval(GameConstants.HAND_DISCARD_INTERVAL);
+            tween.TweenInterval(HAND_DISCARD_INTERVAL);
         }
 
         tween.Finished += () => GameEvents.RaiseHandDiscarded();
@@ -50,7 +55,7 @@ public partial class PlayerHandler : Node
         for (int i = 0; i < ammount; i++)
         {
             tween.TweenCallback(Callable.From(DrawCard));
-            tween.TweenInterval(GameConstants.HAND_DRAW_INTERVAL);
+            tween.TweenInterval(HAND_DRAW_INTERVAL);
         }
 
         tween.Finished += () => GameEvents.RaiseHandDrawn();

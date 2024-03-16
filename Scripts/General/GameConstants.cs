@@ -5,6 +5,7 @@ public class GameConstants
     // Inputs
     public const string INPUT_LEFT_CLICK = "left_mouse";
     public const string INPUT_RIGHT_CLICK = "right_mouse";
+    public const string INPUT_UI_CANCEL = "ui_cancel";
 
     // Notifications
     public const int NOTIFICATION_ENTER_STATE = 5001;
@@ -17,8 +18,6 @@ public class GameConstants
     public static readonly Material WHITE_SPRITE_MATERIAL = GD.Load<Material>("res://Resources/General/white_sprite_material.tres");
 
     // Player
-    public const float HAND_DRAW_INTERVAL = 0.25f;
-    public const float HAND_DISCARD_INTERVAL = 0.25f;
     public static readonly CharacterStats ROGUE_STATS = GD.Load<CharacterStats>("res://Resources/Characters/Rogue/Rogue.tres");
     public static readonly CharacterStats WARRIOR_STATS = GD.Load<CharacterStats>("res://Resources/Characters/Warrior/Warrior.tres");
     public static readonly CharacterStats WIZZARD_STATS = GD.Load<CharacterStats>("res://Resources/Characters/Wizzard/Wizzard.tres");
