@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 
 public partial class CardUI : Control
@@ -99,27 +98,12 @@ public partial class CardUI : Control
 		Playable = CharStats.CanPlayCard(card);
     }
 
-    public override void _Input(InputEvent @event) 
-	{
-		stateMachine.currentState.OnInput(@event);
-	}
+    public override void _Input(InputEvent @event) => stateMachine.currentState.OnInput(@event);
+    private void OnGUIInput(InputEvent @event) => stateMachine.currentState.OnGUIInput(@event);
+    public void OnMouseEntered() => stateMachine.currentState.OnMouseEntered();
+    public void OnMouseExited() => stateMachine.currentState.OnMouseExited();
 
-	private void OnGUIInput(InputEvent @event) 
-	{
-		stateMachine.currentState.OnGUIInput(@event);
-	}
-
-	public void OnMouseEntered() 
-	{
-		stateMachine.currentState.OnMouseEntered();
-	}
-
-    public void OnMouseExited() 
-	{
-		stateMachine.currentState.OnMouseExited();
-	}
-
-	public void AnimateToPosition(Vector2 newPosition, float duration)
+    public void AnimateToPosition(Vector2 newPosition, float duration)
 	{
 		tween = CreateTween().SetTrans(Tween.TransitionType.Circ).SetEase(Tween.EaseType.Out);
 		tween.TweenProperty(this, "global_position", newPosition, duration);
