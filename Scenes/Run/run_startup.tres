@@ -1,7 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clt6nuid401id"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://clt6nuid401id"]
 
 [ext_resource type="Script" path="res://Resources/RunStartup.cs" id="1_gnmek"]
+[ext_resource type="Resource" uid="uid://bqtc1lkmaqlhn" path="res://Resources/Characters/Warrior/Warrior.tres" id="2_3nxom"]
 
 [resource]
 script = ExtResource("1_gnmek")
 runType = 0
+selectedCharacterStats = ExtResource("2_3nxom")

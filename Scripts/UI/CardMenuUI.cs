@@ -6,10 +6,7 @@ public partial class CardMenuUI : CenterContainer
     public event Action<Card> OnTooltipRequested;
     void RaiseTooltipRequested(Card card) => OnTooltipRequested?.Invoke(card);
 
-    [Export] Panel panel;
-    [Export] Label cost;
-    [Export] TextureRect icon;
-
+    [Export] CardVisuals visuals;
     [Export] Card _card;
     public Card card
     {
@@ -17,8 +14,7 @@ public partial class CardMenuUI : CenterContainer
         set
         {
             _card = value;
-            cost.Text = _card.cost.ToString();
-            icon.Texture = _card.icon;
+            visuals.card = _card;
         }
     }
 
@@ -29,7 +25,7 @@ public partial class CardMenuUI : CenterContainer
             RaiseTooltipRequested(card);
         }
     }
-    public void OnMouseEntered() => panel.Set("theme_override_styles/panel", GameConstants.HOVER_STYLEBOX);
-    public void OnMouseExited() => panel.Set("theme_override_styles/panel", GameConstants.BASE_STYLEBOX);
+    public void OnMouseEntered() => visuals.panel.Set("theme_override_styles/panel", GameConstants.HOVER_STYLEBOX);
+    public void OnMouseExited() => visuals.panel.Set("theme_override_styles/panel", GameConstants.BASE_STYLEBOX);
 
 }

@@ -5,6 +5,7 @@ using System.Linq;
 
 public partial class CardUI : Control
 {
+	[Export] public CardVisuals visuals;
 	[Export] private Card _card;
 	public Card card
 	{
@@ -12,8 +13,7 @@ public partial class CardUI : Control
 		set
 		{
 			_card = value;
-			cost.Text = Convert.ToString(_card.cost);
-			icon.Texture = _card.icon;
+			visuals.card = _card;
 		}
 	}
 	[Export] private CharacterStats _characterStats;
@@ -27,9 +27,6 @@ public partial class CardUI : Control
         }
     }
 
-    public Panel panel { get; private set; }
-	public Label cost { get; private set; }
-	public TextureRect icon { get; private set; }
 	public StateMachine stateMachine { get; private set; }
 	public Area2D dropPointDetector { get; private set; }
 	public HashSet<Area2D> targets { get; private set; }
@@ -47,13 +44,13 @@ public partial class CardUI : Control
 			_playable = value;
 			if (!_playable)
 			{
-				cost.AddThemeColorOverride("font_color", Colors.Red);
-				icon.Modulate = new Color(1, 1, 1, 0.5f);
+				visuals.cost.AddThemeColorOverride("font_color", Colors.Red);
+				visuals.icon.Modulate = new Color(1, 1, 1, 0.5f);
 			}
 			else
 			{
-				cost.RemoveThemeColorOverride("font_color");
-				icon.Modulate = new Color(1, 1, 1, 1);
+				visuals.cost.RemoveThemeColorOverride("font_color");
+				visuals.icon.Modulate = new Color(1, 1, 1, 1);
 			}
 		}
 	}
@@ -66,9 +63,6 @@ public partial class CardUI : Control
 
     public override void _Ready()
     {
-		panel = GetNode<Panel>("Panel");
-		cost = GetNode<Label>("Cost");
-		icon = GetNode<TextureRect>("Icon");
 		stateMachine = GetNode<StateMachine>("StateMachine");
 		dropPointDetector = GetNode<Area2D>("DropPointDetector");
 		targets = new();

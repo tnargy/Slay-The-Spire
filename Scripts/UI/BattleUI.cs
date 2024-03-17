@@ -43,6 +43,7 @@ public partial class BattleUI : CanvasLayer
         drawPileView.cardPile = CharStats.drawPile;
         discardPileButton.cardPile = CharStats.discardPile;
         discardPileView.cardPile = CharStats.discardPile;
+        discardPileButton.cardPile.RaiseCardPileChanged(discardPileButton.cardPile.cards.Length);
     }
 
     private void HandleEndTurn()

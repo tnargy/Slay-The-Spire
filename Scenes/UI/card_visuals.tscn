@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg30eqofix4fh"]
+
+[ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://Resources/General/main_theme.tres" id="1_dlckl"]
+[ext_resource type="Script" path="res://Scripts/UI/CardVisuals.cs" id="2_8iano"]
+[ext_resource type="StyleBox" uid="uid://btjhfogdctlfl" path="res://Scenes/UI/Card UI/card_base_stylebox.tres" id="2_u2jhw"]
+[ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="3_ac0jd"]
+[ext_resource type="Texture2D" uid="uid://dwkj05wssepmo" path="res://Assets/rarity.png" id="4_vssw6"]
+
+[node name="CardVisuals" type="Control" node_paths=PackedStringArray("panel", "cost", "icon", "rarity")]
+custom_minimum_size = Vector2(120, 160)
+layout_mode = 3
+anchors_preset = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_dlckl")
+script = ExtResource("2_8iano")
+panel = NodePath("Panel")
+cost = NodePath("Cost")
+icon = NodePath("Icon")
+rarity = NodePath("Rarity")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_u2jhw")
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 37.0
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ac0jd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Rarity" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -29.0
+offset_top = 7.0
+offset_right = -9.0
+offset_bottom = 27.0
+grow_horizontal = 0
+texture = ExtResource("4_vssw6")
+expand_mode = 1
+stretch_mode = 5

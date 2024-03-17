@@ -7,7 +7,7 @@ public partial class CardDraggingState : CardState
 
     protected override void EnterState()
     {
-        cardUI.panel.Set("theme_override_styles/panel", GameConstants.DRAG_STYLEBOX);
+        cardUI.visuals.panel.Set("theme_override_styles/panel", GameConstants.DRAG_STYLEBOX);
         Node ui_layer = GetTree().GetFirstNodeInGroup("UI_Layer");
         if (ui_layer != null)
         {

@@ -9,6 +9,7 @@ script = ExtResource("1_y80v3")
 id = "warrior_axe_attack"
 type = 0
 target = 1
+rarity = 0
 cost = 1
 icon = ExtResource("1_30llb")
 tooltopText = "[center]Deal [color=\"ff0000\"]6[/color] damage.[/center]"

@@ -3,6 +3,11 @@ using Godot;
 public partial class Run : Node
 {
     Node currentView;
+    GoldUI goldUI;
+    CardPileButton deckButton;
+    CardPileView deckView;
+
+    // DEBUG Menu
     Button BattleBtn;
     Button RewardBtn;
     Button CampfireBtn;
@@ -10,12 +15,16 @@ public partial class Run : Node
     Button ShopBtn;
     Button TreasureBtn;
 
+    RunStats stats;
     CharacterStats character;
     [Export] public RunStartup runStartup;
 
     public override void _Ready()
     {
-        currentView = GetNode<Node>("CurrentView");
+        currentView = GetNode<Node>("%CurrentView");
+        goldUI = GetNode<GoldUI>("%GoldUI");
+        deckButton = GetNode<CardPileButton>("%DeckButton");
+        deckView = GetNode<CardPileView>("%DeckView");
         
         // DEBUG Menu
         MapBtn = GetNode<Button>("%MapBtn");
@@ -59,7 +68,19 @@ public partial class Run : Node
 
     private void StartRun()
     {
+        stats = new();
+        SetupTopBar();
         GD.Print("TODO: procedurally generate map");
+    }
+
+    private void SetupTopBar()
+    {
+        goldUI.runStats = stats;
+
+        deckButton.cardPile = character.deck;
+        deckView.cardPile = character.deck;
+        deckButton.cardPile.RaiseCardPileChanged(deckButton.cardPile.cards.Length);
+        deckButton.Pressed += () => deckView.ShowCurrentView("Deck");
     }
 
     private void ChangeView(string path)

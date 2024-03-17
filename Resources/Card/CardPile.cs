@@ -7,7 +7,7 @@ public partial class CardPile : Resource
     [Export] public Card[] cards;
 
     public event Action<int> OnCardPileChanged;
-    private void RaiseCardPileChanged(int pileSize) => OnCardPileChanged?.Invoke(pileSize);
+    public void RaiseCardPileChanged(int pileSize) => OnCardPileChanged?.Invoke(pileSize);
 
     public bool IsEmpty() => cards.Length == 0;
     public void Shuffle() => cards = cards.OrderBy(x=> Random.Shared.Next()).ToArray();

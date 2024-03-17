@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_um6c0")
 debug_color = Color(0, 0.6, 0.701961, 0.231373)
 
 [node name="Player" parent="." instance=ExtResource("3_7l36r")]
-position = Vector2(191, 296)
+position = Vector2(249, 296)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_0j4dx")]
 
@@ -171,7 +171,7 @@ offset_right = -37.0
 offset_bottom = 13.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "0"
+text = "99"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -203,7 +203,7 @@ layer = 2
 visible = false
 
 [node name="CardPileViews" type="CanvasLayer" parent="."]
-layer = 3
+layer = 4
 
 [node name="DrawView" parent="CardPileViews" instance=ExtResource("21_kuv0k")]
 unique_name_in_owner = true

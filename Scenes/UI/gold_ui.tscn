@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8qsxqgp6485t"]
+
+[ext_resource type="Texture2D" uid="uid://bsmi4iaxju8vf" path="res://Assets/gold.png" id="1_c81xm"]
+[ext_resource type="Script" path="res://Scripts/UI/GoldUI.cs" id="1_tkfkh"]
+
+[node name="GoldUI" type="HBoxContainer" node_paths=PackedStringArray("icon", "label")]
+offset_top = -2.0
+offset_right = 96.0
+offset_bottom = 48.0
+size_flags_vertical = 4
+script = ExtResource("1_tkfkh")
+icon = NodePath("Icon")
+label = NodePath("Label")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c81xm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+text = "42"
+vertical_alignment = 1

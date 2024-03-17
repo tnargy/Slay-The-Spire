@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -5,11 +6,21 @@ public partial class Card : Resource
 {
     public enum Type { ATTACK, SKILL, POWER }
     public enum Target { SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE }
- 
+    public enum Rarity { COMMON, UNCOMMON, RARE }
+
+    public static readonly Dictionary<Rarity,Color> RARITY_COLORS = new()
+    {
+        { Rarity.COMMON, Colors.Gray },
+        { Rarity.UNCOMMON, Colors.CornflowerBlue },
+        { Rarity.RARE, Colors.Gold }
+    };
+
+
     [ExportGroup("Card Attributes")]
     [Export] public string id { get; private set; }
     [Export] public Type type { get; private set; }
     [Export] public Target target { get; private set; }
+    [Export] public Rarity rarity { get; private set; }
     [Export(PropertyHint.Range, "0,999")] public int cost;
     
     [ExportGroup("Card Visuals")]
