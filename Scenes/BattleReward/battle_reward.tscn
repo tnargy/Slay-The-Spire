@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm7b6kl1g5x25"]
+[gd_scene load_steps=8 format=3 uid="uid://bm7b6kl1g5x25"]
 
 [ext_resource type="Script" path="res://Scripts/BattleReward/BattleReward.cs" id="1_yuaj3"]
+[ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="2_aetov"]
+[ext_resource type="PackedScene" uid="uid://d13se86p0r8hp" path="res://Scenes/BattleReward/reward_button.tscn" id="3_pfdp5"]
+[ext_resource type="Texture2D" uid="uid://bsmi4iaxju8vf" path="res://Assets/gold.png" id="4_f0kvi"]
+[ext_resource type="Texture2D" uid="uid://dwkj05wssepmo" path="res://Assets/rarity.png" id="5_k12ie"]
 
-[node name="BattleReward" type="Control" node_paths=PackedStringArray("button")]
+[sub_resource type="LabelSettings" id="LabelSettings_5pdwf"]
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhg4j"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[node name="BattleReward" type="Control" node_paths=PackedStringArray("backButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,9 +21,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_yuaj3")
-button = NodePath("VBoxContainer/Button")
+backButton = NodePath("VBoxContainer/BackButton")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TileMap" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+scale = Vector2(4, 4)
+tile_set = ExtResource("2_aetov")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 1, 4, 524289, 65537, 4, 589825, 1, 4, 524290, 1, 4, 458754, 1, 4, 458755, 1, 4, 458756, 1, 4, 196608, 131073, 4, 262144, 1, 4, 327680, 393217, 3, 393216, 1, 4, 458752, 1, 4, 524288, 1, 4, 196609, 131073, 4, 262145, 1, 4, 327681, 1, 4, 393217, 1, 4, 458753, 1, 4, 196610, 524289, 3, 262146, 1, 4, 327682, 1, 4, 393218, 65537, 4, 589826, 1, 4, 196611, 131073, 4, 262147, 1, 4, 327683, 65537, 4, 393219, 1, 4, 524291, 393217, 3, 589827, 1, 4, 196612, 131073, 4, 262148, 1, 4, 327684, 1, 4, 393220, 1, 4, 524292, 1, 4, 589828, 1, 4, 196613, 196609, 4, 262149, 1, 4, 327685, 1, 4, 393221, 1, 4, 458757, 1, 4, 524293, 1, 4, 589829, 1, 4, 196614, 131073, 4, 262150, 1, 4, 327686, 1, 4, 393222, 393217, 3, 458758, 1, 4, 524294, 1, 4, 589830, 1, 4, 196615, 196609, 4, 262151, 1, 4, 327687, 1, 4, 393223, 1, 4, 458759, 1, 4, 524295, 65537, 4, 589831, 1, 4, 196616, 131073, 4, 262152, 1, 4, 327688, 65537, 4, 393224, 1, 4, 458760, 1, 4, 524296, 1, 4, 589832, 1, 4, 196617, 131073, 4, 262153, 1, 4, 327689, 1, 4, 393225, 1, 4, 458761, 393217, 3, 524297, 1, 4, 589833, 1, 4, 196618, 131073, 4, 262154, 1, 4, 327690, 393217, 3, 393226, 1, 4, 458762, 1, 4, 524298, 1, 4, 589834, 1, 4, 196619, 196609, 4, 262155, 1, 4, 327691, 1, 4, 393227, 1, 4, 458763, 1, 4, 524299, 1, 4, 589835, 1, 4, 196620, 131073, 4, 262156, 1, 4, 327692, 1, 4, 393228, 1, 4, 458764, 1, 4, 524300, 1, 4, 589836, 393217, 3, 196621, 196609, 4, 262157, 1, 4, 327693, 65537, 4, 393229, 65537, 4, 458765, 1, 4, 524301, 65537, 4, 589837, 1, 4, 196622, 131073, 4, 262158, 1, 4, 327694, 1, 4, 393230, 1, 4, 458766, 1, 4, 524302, 1, 4, 589838, 1, 4, 196623, 524289, 2, 262159, 1, 4, 327695, 1, 4, 393231, 1, 4, 458767, 393217, 3, 524303, 1, 4, 589839, 1, 4, 196624, 131073, 4, 262160, 1, 4, 327696, 393217, 3, 393232, 1, 4, 458768, 1, 4, 524304, 1, 4, 589840, 65537, 4, 196625, 131073, 4, 262161, 1, 4, 327697, 1, 4, 393233, 1, 4, 458769, 65537, 4, 524305, 1, 4, 589841, 1, 4, 0, 131073, 0, 1, 131073, 0, 2, 131073, 0, 3, 131073, 0, 4, 131073, 0, 5, 131073, 0, 6, 131073, 0, 7, 131073, 0, 8, 131073, 0, 9, 131073, 0, 10, 131073, 0, 11, 131073, 0, 12, 131073, 0, 13, 131073, 0, 14, 131073, 0, 15, 131073, 0, 16, 131073, 0, 17, 131073, 0, 65536, 262145, 3, 131072, 262145, 3, 65537, 262145, 2, 131073, 589825, 0, 65538, 262145, 3, 131074, 524289, 0, 65539, 262145, 3, 131075, 262145, 3, 65540, 262145, 2, 131076, 262145, 3, 65541, 262145, 3, 131077, 262145, 3, 65542, 327681, 2, 131078, 262145, 3, 65543, 262145, 3, 131079, 262145, 3, 65544, 327681, 2, 131080, 589825, 3, 65545, 262145, 3, 131081, 262145, 3, 65546, 327681, 2, 131082, 262145, 3, 65547, 262145, 3, 131083, 262145, 3, 65548, 262145, 3, 131084, 262145, 3, 65549, 262145, 2, 131085, 262145, 3, 65550, 262145, 3, 131086, 262145, 3, 65551, 262145, 3, 131087, 524289, 1, 65552, 262145, 3, 131088, 262145, 3, 65553, 262145, 2, 131089, 589825, 0)
+
+[node name="BackgroundDimmer" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +39,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.662745)
+color = Color(0, 0, 0, 0.345098)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -40,9 +58,38 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Rewards"
+label_settings = SubResource("LabelSettings_5pdwf")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="RewardContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xhg4j")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RewardContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Rewards" type="VBoxContainer" parent="VBoxContainer/RewardContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GoldReward" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards" instance=ExtResource("3_pfdp5")]
+layout_mode = 2
+_rewardIcon = ExtResource("4_f0kvi")
+_rewardText = "127 Gold"
+
+[node name="CardReward" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards" instance=ExtResource("3_pfdp5")]
+layout_mode = 2
+_rewardIcon = ExtResource("5_k12ie")
+_rewardText = "Add New Card"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Go Back"
+size_flags_horizontal = 4
+text = "Continue"

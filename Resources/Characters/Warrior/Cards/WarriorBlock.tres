@@ -9,6 +9,7 @@ script = ExtResource("2_nf60k")
 id = "warrior_block"
 type = 1
 target = 0
+rarity = 0
 cost = 1
 icon = ExtResource("1_kryhy")
 tooltopText = "[center]Gain [color=\"0044ff\"]5[/color] block.[/center]"
