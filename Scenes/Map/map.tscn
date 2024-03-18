@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://f87sgaj100yk"]
+[gd_scene load_steps=3 format=3 uid="uid://f87sgaj100yk"]
 
 [ext_resource type="Script" path="res://Scripts/Map/Map.cs" id="1_pnnd2"]
+[ext_resource type="Script" path="res://Scripts/Map/MapGenerator.cs" id="2_c2hnp"]
 
 [node name="Map" type="Control" node_paths=PackedStringArray("button")]
 layout_mode = 3
@@ -46,3 +47,6 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Go Back"
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("2_c2hnp")
