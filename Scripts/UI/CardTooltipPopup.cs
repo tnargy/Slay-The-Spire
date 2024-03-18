@@ -1,13 +1,16 @@
-using System;
 using Godot;
 
 public partial class CardTooltipPopup : Control
 {
     [Export] CenterContainer cardTooltip;
     [Export] RichTextLabel description;
+    [Export] Color backgroundColor = new("00000079");
+    ColorRect background;
 
     public override void _Ready()
     {
+        background = GetNode<ColorRect>("%Background");
+        background.Color = backgroundColor;
         foreach (CardMenuUI card in cardTooltip.GetChildren())
         {
             card.QueueFree();

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bqtc1lkmaqlhn"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bqtc1lkmaqlhn"]
 
 [ext_resource type="Texture2D" uid="uid://dex6vkhropp0u" path="res://Assets/Tiny Dungeon/Tiles/tile_0087.png" id="1_wk35p"]
 [ext_resource type="Script" path="res://Resources/Characters/CharacterStats.cs" id="2_2oelu"]
+[ext_resource type="Resource" uid="uid://bne8luh1uccm2" path="res://Resources/Characters/Warrior/WarriorDraftCards.tres" id="2_mof7c"]
 [ext_resource type="Resource" uid="uid://bajsnxfjg6v62" path="res://Resources/Characters/Warrior/WarriorStartingDeck.tres" id="3_dfdsh"]
 
 [resource]
@@ -10,6 +11,7 @@ name = "Warrior"
 desc = "Likes to slice things up."
 portrait = ExtResource("1_wk35p")
 startingDeck = ExtResource("3_dfdsh")
+draftCards = ExtResource("2_mof7c")
 cardsPerTurn = 4
 maxMana = 3
 maxHealth = 35

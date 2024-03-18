@@ -35,4 +35,14 @@ public partial class CardPile : Resource
         Array.Clear(cards);
         RaiseCardPileChanged(cards.Length);
     }
+
+    public override string ToString()
+    {
+        string cardString = "";
+        for (int i = 0; i < cards.Length; i++)
+        {
+            cardString += $"{i+1}: {cards[i].id}\n";
+        }
+        return cardString;
+    }
 }

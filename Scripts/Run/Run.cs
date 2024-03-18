@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class Run : Node
@@ -41,12 +42,12 @@ public partial class Run : Node
         CampfireBtn.Pressed += () => ChangeView(GameConstants.CAMPFIRE_SCENE);
         
 
-        GameEvents.OnBattleWon += () => ChangeView(GameConstants.BATTLE_REWARD_SCENE);
         GameEvents.OnBattleRewardExited += () => ChangeView(GameConstants.MAP_SCENE);
         GameEvents.OnCampfireExited += () => ChangeView(GameConstants.MAP_SCENE);
         GameEvents.OnShopExited += () => ChangeView(GameConstants.MAP_SCENE);
         GameEvents.OnTreasureRoomExited += () => ChangeView(GameConstants.MAP_SCENE);
         GameEvents.OnMapExited += HandleMapExited;
+        GameEvents.OnBattleWon += HandleBattleWon;
 
         if (runStartup == null) { return; }
         switch (runStartup.runType)
@@ -66,6 +67,17 @@ public partial class Run : Node
         GD.Print("TODO: from the MAP, change view based on room type");
     }
 
+    private void HandleBattleWon()
+    {
+        BattleReward rewardScene = (BattleReward)ChangeView(GameConstants.BATTLE_REWARD_SCENE);
+        rewardScene.runStats = stats;
+        rewardScene.characterStats = character;
+
+        // DEBUG
+        rewardScene.AddGoldReward(100);
+        rewardScene.AddCardReward();
+    }
+
     private void StartRun()
     {
         stats = new();
@@ -83,7 +95,7 @@ public partial class Run : Node
         deckButton.Pressed += () => deckView.ShowCurrentView("Deck");
     }
 
-    private void ChangeView(string path)
+    private Node ChangeView(string path)
     {
         if (currentView.GetChildCount() > 0)
         {
@@ -93,7 +105,9 @@ public partial class Run : Node
         GetTree().Paused = false;
         PackedScene scene = ResourceLoader.Load<PackedScene>(path);
         Node newView = scene.Instantiate();
-        currentView.AddChild(newView);   
+        currentView.AddChild(newView);
+
+        return newView;
     }
 
 }

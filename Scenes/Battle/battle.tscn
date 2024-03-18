@@ -82,8 +82,10 @@ offset_top = 12.0
 offset_bottom = 162.0
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("11_wu3pj")]
-offset_top = -184.0
-offset_bottom = -119.0
+offset_left = 41.0
+offset_top = -183.0
+offset_right = 106.0
+offset_bottom = -118.0
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
 anchors_preset = 7
@@ -107,9 +109,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -230.0
+offset_left = -241.0
 offset_top = -176.0
-offset_right = -30.0
+offset_right = -41.0
 offset_bottom = -116.0
 grow_horizontal = 0
 grow_vertical = 0

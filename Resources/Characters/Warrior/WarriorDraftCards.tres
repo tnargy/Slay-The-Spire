@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bne8luh1uccm2"]
+
+[ext_resource type="Script" path="res://Resources/Card/CardPile.cs" id="1_owrkf"]
+[ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/Warrior/Cards/WarriorBlock.tres" id="2_csopg"]
+[ext_resource type="Resource" uid="uid://bdmhiumbmgmd" path="res://Resources/Characters/Warrior/Cards/WarriorBigSlam.tres" id="2_h2jal"]
+[ext_resource type="Resource" uid="uid://bfhqamosone0d" path="res://Resources/Characters/Warrior/Cards/WarriorSlash.tres" id="3_etbks"]
+[ext_resource type="Resource" uid="uid://b4m86ix48ydcs" path="res://Resources/Characters/Warrior/Cards/WarriorTrueStrength.tres" id="3_wrukg"]
+
+[resource]
+script = ExtResource("1_owrkf")
+cards = Array[Resource]([ExtResource("2_csopg"), ExtResource("2_csopg"), ExtResource("3_etbks"), ExtResource("2_h2jal"), ExtResource("2_h2jal"), ExtResource("2_h2jal"), ExtResource("3_wrukg"), ExtResource("3_wrukg"), ExtResource("3_wrukg")])

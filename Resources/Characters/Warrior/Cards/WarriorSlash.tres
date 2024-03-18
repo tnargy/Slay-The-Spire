@@ -9,7 +9,7 @@ script = ExtResource("1_46gna")
 id = "warrior_slash"
 type = 0
 target = 2
-rarity = 1
+rarity = 0
 cost = 2
 icon = ExtResource("1_101iq")
 tooltopText = "[center]Deal [color=\"ff0000\"]4[/color] damage to all enemies.[/center]"

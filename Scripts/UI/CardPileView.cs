@@ -60,7 +60,7 @@ public partial class CardPileView : Control
             CardMenuUI newCard = (CardMenuUI)scene.Instantiate();
             cards.AddChild(newCard);
             newCard.card = card;
-            newCard.OnTooltipRequested += (card) => cardTooltipPopup.Show_Tooltip(card);
+            newCard.OnTooltipRequested += cardTooltipPopup.Show_Tooltip;
         }
 
         Show();

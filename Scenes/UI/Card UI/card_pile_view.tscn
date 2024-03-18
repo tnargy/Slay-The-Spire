@@ -67,107 +67,56 @@ columns = 6
 [node name="CardMenuUI" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
 
-[node name="CardMenuUI2" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI2" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI3" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI3" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI4" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI4" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI5" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI5" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI6" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI6" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI7" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI7" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI8" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI8" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI9" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI9" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI10" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI10" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI11" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI11" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI12" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI12" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI13" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI13" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI14" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI14" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI15" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI15" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI16" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI16" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI17" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI17" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
-[node name="CardMenuUI18" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" node_paths=PackedStringArray("panel", "cost", "icon") instance=ExtResource("1_ui0hq")]
+[node name="CardMenuUI18" parent="Background/MarginContainer/VBoxContainer/ScrollContainer/Cards" instance=ExtResource("1_ui0hq")]
 layout_mode = 2
-panel = NodePath("../CardMenuUI/Visuals/Panel")
-cost = NodePath("../CardMenuUI/Visuals/Cost")
-icon = NodePath("../CardMenuUI/Visuals/Icon")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
