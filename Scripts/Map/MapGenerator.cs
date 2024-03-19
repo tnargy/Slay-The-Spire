@@ -6,7 +6,7 @@ using Godot;
 public partial class MapGenerator : Node
 {
     public const int X_DIST = 150;
-    public const int Y_DIST = 65;
+    public const int Y_DIST = 100;
     const int PLACEMENT_RANDOMNESS = 5;
     public const int FLOORS = 15;
     public const int MAP_WIDTH = 7;
@@ -200,7 +200,8 @@ public partial class MapGenerator : Node
             int roll = Math.Clamp(Random.Shared.Next(j-1, j+1), 0, MAP_WIDTH - 1);
             nextRoom = mapData[i+1, roll];
         }
-        currentRoom.nextRooms = (Room[])currentRoom.nextRooms.Append(nextRoom).ToArray();
+        //currentRoom.nextRooms = (Room[])currentRoom.nextRooms.Append(nextRoom).ToArray();
+        currentRoom.nextRooms.Append(nextRoom);
         return nextRoom.column;
     }
 
@@ -252,8 +253,8 @@ public partial class MapGenerator : Node
                 if (!yCoord.Contains(roll))
                 {
                     uniquePoints++;
-                    yCoord.Add(roll);
                 }
+                yCoord.Add(roll);
             }
         }
         
