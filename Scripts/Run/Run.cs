@@ -19,6 +19,7 @@ public partial class Run : Node
     RunStats stats;
     CharacterStats character;
     [Export] public RunStartup runStartup;
+    [Export] Map map;
 
     public override void _Ready()
     {
@@ -34,7 +35,7 @@ public partial class Run : Node
         TreasureBtn = GetNode<Button>("%TreasureBtn");
         RewardBtn = GetNode<Button>("%RewardBtn");
         CampfireBtn = GetNode<Button>("%CampfireBtn");
-        MapBtn.Pressed += () => ChangeView(GameConstants.MAP_SCENE);
+        MapBtn.Pressed += ShowMap;
         BattleBtn.Pressed += () => ChangeView(GameConstants.BATTLE_SCENE);
         ShopBtn.Pressed += () => ChangeView(GameConstants.SHOP_SCENE);
         TreasureBtn.Pressed += () => ChangeView(GameConstants.TREASURE_SCENE);
@@ -42,10 +43,10 @@ public partial class Run : Node
         CampfireBtn.Pressed += () => ChangeView(GameConstants.CAMPFIRE_SCENE);
         
 
-        GameEvents.OnBattleRewardExited += () => ChangeView(GameConstants.MAP_SCENE);
-        GameEvents.OnCampfireExited += () => ChangeView(GameConstants.MAP_SCENE);
-        GameEvents.OnShopExited += () => ChangeView(GameConstants.MAP_SCENE);
-        GameEvents.OnTreasureRoomExited += () => ChangeView(GameConstants.MAP_SCENE);
+        GameEvents.OnBattleRewardExited += ShowMap;
+        GameEvents.OnCampfireExited += ShowMap;
+        GameEvents.OnShopExited += ShowMap;
+        GameEvents.OnTreasureRoomExited += ShowMap;
         GameEvents.OnMapExited += HandleMapExited;
         GameEvents.OnBattleWon += HandleBattleWon;
 
@@ -62,9 +63,26 @@ public partial class Run : Node
         }
     }
 
-    private void HandleMapExited()
+    private void HandleMapExited(Room room)
     {
-        GD.Print("TODO: from the MAP, change view based on room type");
+        switch (room.roomType)
+        {
+            case Room.RoomType.MONSTER:
+                ChangeView(GameConstants.BATTLE_SCENE);
+                break;
+            case Room.RoomType.TREASURE:
+                ChangeView(GameConstants.TREASURE_SCENE);
+                break;
+            case Room.RoomType.CAMPFIRE:
+                ChangeView(GameConstants.CAMPFIRE_SCENE);
+                break;
+            case Room.RoomType.SHOP:
+                ChangeView(GameConstants.SHOP_SCENE);
+                break;
+            case Room.RoomType.BOSS:
+                ChangeView(GameConstants.BATTLE_SCENE);
+                break;
+        }
     }
 
     private void HandleBattleWon()
@@ -82,7 +100,8 @@ public partial class Run : Node
     {
         stats = new();
         SetupTopBar();
-        GD.Print("TODO: procedurally generate map");
+        map.GenerateNewMap();
+        map.UnlockFloor(0);
     }
 
     private void SetupTopBar()
@@ -106,8 +125,20 @@ public partial class Run : Node
         PackedScene scene = ResourceLoader.Load<PackedScene>(path);
         Node newView = scene.Instantiate();
         currentView.AddChild(newView);
+        map.HideMap();
 
         return newView;
+    }
+
+    void ShowMap()
+    {
+        if (currentView.GetChildCount() > 0)
+        {
+            currentView.GetChild(0).QueueFree();
+        }
+
+        map.ShowMap();
+        map.UnlockNextRooms();
     }
 
 }

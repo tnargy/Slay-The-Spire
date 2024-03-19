@@ -5,11 +5,11 @@ using Godot;
 
 public partial class MapGenerator : Node
 {
-    const int X_DIST = 30;
-    const int Y_DIST = 25;
+    public const int X_DIST = 150;
+    public const int Y_DIST = 65;
     const int PLACEMENT_RANDOMNESS = 5;
-    const int FLOORS = 15;
-    const int MAP_WIDTH = 7;
+    public const int FLOORS = 15;
+    public const int MAP_WIDTH = 7;
     const int PATHS = 6;
     const float MONSTER_ROOM_WEIGHT = 10.0f;
     const float CAMPFIRE_ROOM_WEIGHT = 4.0f;
@@ -24,12 +24,7 @@ public partial class MapGenerator : Node
     float randomRoomTypeTotalWeights = 0;
     Room[,] mapData = new Room[FLOORS, MAP_WIDTH];
 
-    public override void _Ready()
-    {
-        GenerateMap();
-    }
-
-    Room[,] GenerateMap()
+    public Room[,] GenerateMap()
     {
         mapData = GenerateInitGrid();
         
@@ -47,20 +42,6 @@ public partial class MapGenerator : Node
         SetupBossRoom();
         SetupRandomRoomWeights();
         SetupRoomTypes();
-
-        // DEBUG
-        // for (int i = 0; i < FLOORS; i++)
-        // {
-        //     string floor = $"floor {i}:\t[";
-        //     for (int j = 0; j < MAP_WIDTH; j++)
-        //     {
-        //         if (mapData[i,j].nextRooms.Length>0 || mapData[i,j].roomType == Room.RoomType.BOSS)
-        //         {
-        //             floor += $"{mapData[i,j]}";
-        //         }
-        //     }
-        //     GD.Print(floor+"]");
-        // }
         
         return mapData;
     }

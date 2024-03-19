@@ -43,8 +43,8 @@ public class GameEvents
     public static void RaiseBattleWon () => OnBattleWon?.Invoke();
 
     // Map Related
-    public static event Action OnMapExited;
-    public static void RaiseMapExited () => OnMapExited?.Invoke();
+    public static event Action<Room> OnMapExited;
+    public static void RaiseMapExited (Room room) => OnMapExited?.Invoke(room);
     
     // Shop Related
     public static event Action OnShopExited;
