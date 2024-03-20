@@ -29,6 +29,7 @@ public partial class BattleReward : Control
     {
         backButton.Pressed += () => GameEvents.RaiseBattleRewardExited();
         rewards = GetNode<VBoxContainer>("%Rewards");
+        rewards.ChildOrderChanged += () => backButton.Disabled = rewards.GetChildCount() > 0 ? true : false;
 
         foreach (Node node in rewards.GetChildren())
         {

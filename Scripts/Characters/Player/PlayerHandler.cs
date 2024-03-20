@@ -7,11 +7,12 @@ public partial class PlayerHandler : Node
     const float HAND_DRAW_INTERVAL = 0.25f;
     const float HAND_DISCARD_INTERVAL = 0.25f;
 
-    [Export] Hand hand;
+    Hand hand;
     CharacterStats character;
 
     public override void _Ready()
     {
+        hand = GetNode<Hand>("%Hand");
         GameEvents.OnCardPlayed += (card) => character.discardPile.AddCard(card);
     }
 

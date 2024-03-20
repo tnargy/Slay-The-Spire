@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://clt6nuid401id" path="res://Scenes/Run/run_startup.tres" id="2_r80jc"]
 [ext_resource type="PackedScene" uid="uid://c8qsxqgp6485t" path="res://Scenes/UI/gold_ui.tscn" id="4_fahey"]
 [ext_resource type="PackedScene" uid="uid://bcaxwy2jbx22q" path="res://Scenes/UI/card_pile_button.tscn" id="4_jjab6"]
-[ext_resource type="Texture2D" uid="uid://do10shkckl0ne" path="res://Assets/deck.png" id="5_65ni0"]
+[ext_resource type="Texture2D" uid="uid://cef8dg6utkjp1" path="res://Assets/deck.png" id="5_65ni0"]
 [ext_resource type="PackedScene" uid="uid://devsd8puoakx8" path="res://Scenes/UI/Card UI/card_pile_view.tscn" id="6_sdi7h"]
 
 [node name="Run" type="Node" node_paths=PackedStringArray("map")]

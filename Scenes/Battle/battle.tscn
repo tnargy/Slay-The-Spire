@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Battle/Battle.cs" id="1_j1ws3"]
 [ext_resource type="Script" path="res://Scripts/UI/Hand.cs" id="2_m5pui"]
 [ext_resource type="PackedScene" uid="uid://3goa2recbk5h" path="res://Scenes/Characters/enemy.tscn" id="2_nu7rj"]
-[ext_resource type="AudioStream" uid="uid://cu1lq5oqsx63p" path="res://Assets/Music/Retro Mystic.ogg" id="2_x7rbm"]
+[ext_resource type="AudioStream" uid="uid://iw2ayf11hwyq" path="res://Assets/Music/Retro Mystic.ogg" id="2_x7rbm"]
 [ext_resource type="PackedScene" uid="uid://opn1vjrow5o0" path="res://Scenes/Card Target/card_target_selector.tscn" id="3_0j4dx"]
 [ext_resource type="PackedScene" uid="uid://b83tepqvqdk38" path="res://Scenes/Characters/player.tscn" id="3_7l36r"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyHandler.cs" id="4_meax3"]
@@ -78,6 +78,7 @@ offset_right = 106.0
 offset_bottom = -118.0
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
+unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
