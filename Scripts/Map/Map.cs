@@ -12,16 +12,13 @@ public partial class Map : Node2D
     MapGenerator mapGenerator;
     Room[,] mapData;
     int floorsClimbed;
-    Room lastRoom;
     float cameraEdgeY;
+    public Room lastRoom;
 
     public override void _Ready()
     {
         mapGenerator = GetNode<MapGenerator>("%MapGenerator");
         cameraEdgeY = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1);
-
-        GenerateNewMap();
-        UnlockFloor(0);
     }
 
     public override void _Input(InputEvent @event)

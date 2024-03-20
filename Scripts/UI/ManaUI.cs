@@ -1,29 +1,26 @@
+using System;
 using Godot;
 
 public partial class ManaUI : Panel
 {
-    [Export] private CharacterStats _characterStats;
-    public CharacterStats CharStats
+    [Export] CharacterStats _characterStats;
+    public CharacterStats characterStats
     {
         get => _characterStats;
-        set
-        {
-            _characterStats = value;
-        }
+        set => SetStats(value);
     }
+    void SetStats(CharacterStats value)
+    {
+        if (value == null) { return; }
+        _characterStats = value;
+        _characterStats.OnStatsChanged += 
+            () => manaLabel.Text = $"{characterStats.Mana}/{characterStats.maxMana}";
+    }
+    
     Label manaLabel;
-
-    public override async void _Ready()
+    
+    public override void _Ready()
     {
         manaLabel = GetNode<Label>("Label");
-        await ToSignal(Owner, SignalName.Ready);
-        HandleStatsChanged();
-        CharStats.OnStatsChanged += HandleStatsChanged;
     }
-
-    private void HandleStatsChanged()
-    {
-        manaLabel.Text = $"{CharStats.Mana}/{CharStats.maxMana}";
-    }
-
 }

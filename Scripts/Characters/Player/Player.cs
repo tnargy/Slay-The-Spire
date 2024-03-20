@@ -3,31 +3,31 @@ using Godot;
 
 public partial class Player : Node2D
 {
-   private CharacterStats _stats;
-    [Export] public CharacterStats Stats
+    [Export] CharacterStats _characterStats;
+    public CharacterStats characterStats
     {
-        get => _stats;
+        get => _characterStats;
         set
         {
-            _stats = value;
+            _characterStats = value;
+            _characterStats.OnStatsChanged += UpdateCharacter;
         }
     }
+    
+    Sprite2D sprite2D;
+    StatsUI statsUI;
 
-    [Export] Sprite2D sprite2D;
-    [Export] StatsUI statsUI;
-
-    public override async void _Ready()
+    public override void _Ready()
     {
-        await ToSignal(Owner, SignalName.Ready);
-        UpdateCharacter();
-        Stats.OnStatsChanged += UpdateCharacter;
+        sprite2D = GetNode<Sprite2D>("Sprite2D");
+        statsUI = GetNode<StatsUI>("StatsUI");
     }
 
     void UpdateCharacter()
     {
         if (!IsInstanceValid(this)) { return; }
-        sprite2D.Texture = Stats.art;
-        statsUI.UpdateStats(Stats);
+        sprite2D.Texture = characterStats.art;
+        statsUI.UpdateStats(characterStats);
     }
 
     public void TakeDamage(int damage)
@@ -36,13 +36,13 @@ public partial class Player : Node2D
 
         Tween tween = CreateTween();
         tween.TweenCallback(Callable.From(() => Shaker.Shake(this, 16, 0.15f)));
-        tween.TweenCallback(Callable.From(() => Stats.TakeDamage(damage)));
+        tween.TweenCallback(Callable.From(() => characterStats.TakeDamage(damage)));
         tween.TweenInterval(0.17);
 
         tween.Finished += () => 
         {
             sprite2D.Material = null;
-            if (Stats.Health <= 0)
+            if (characterStats.Health <= 0)
             {
                 GameEvents.RaisePlayerDied(); 
                 QueueFree(); 

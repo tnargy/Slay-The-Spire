@@ -2,16 +2,19 @@ using Godot;
 
 public partial class CardPileView : Control
 {
-    [Export] Label title;
-    [Export] Button button;
-    [Export] GridContainer cards;
     [Export] public CardPile cardPile;
 
+    Label title;
+    Button button;
+    GridContainer cards;
     CardTooltipPopup cardTooltipPopup;
 
     public override void _Ready()
     {
         cardTooltipPopup = GetNode<CardTooltipPopup>("%CardTooltipPopup");
+        title = GetNode<Label>("%Title");
+        button = GetNode<Button>("%Button");
+        cards = GetNode<GridContainer>("%Cards");
         button.Pressed += Hide;
 
         foreach (Node card in cards.GetChildren())

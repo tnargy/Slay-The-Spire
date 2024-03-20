@@ -14,7 +14,7 @@ public partial class BattleUI : CanvasLayer
         {
             _characterStats = value;
             hand.CharStats = _characterStats;
-            mana.CharStats = _characterStats;
+            mana.characterStats = _characterStats;
         }
     }
     Hand hand;

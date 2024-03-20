@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0qa4m"]
 font_size = 40
 
-[node name="CardPileView" type="Control" node_paths=PackedStringArray("title", "button", "cards")]
+[node name="CardPileView" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,9 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7v6y0")
-title = NodePath("Background/MarginContainer/VBoxContainer/Title")
-button = NodePath("Button")
-cards = NodePath("Background/MarginContainer/VBoxContainer/ScrollContainer/Cards")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -45,6 +42,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Pile"
 label_settings = SubResource("LabelSettings_0qa4m")
@@ -57,6 +55,7 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 3
 
 [node name="Cards" type="GridContainer" parent="Background/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -119,6 +118,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

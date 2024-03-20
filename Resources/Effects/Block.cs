@@ -15,7 +15,7 @@ public partial class Block : Effects
             }
             else if (target is Player player)
             {
-                player.Stats.Block += amount;
+                player.characterStats.Block += amount;
                 SFXPlayer.Play(sound);
             }
         }

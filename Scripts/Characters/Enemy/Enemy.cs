@@ -1,21 +1,28 @@
+using System.Windows.Markup;
 using Godot;
 
 public partial class Enemy : Area2D
 {
-    private EnemyStats _stats;
-    [Export] public EnemyStats Stats
+    [Export] EnemyStats _stats;
+    public EnemyStats Stats
     {
         get => _stats;
-        set
-        {
-            _stats = (EnemyStats)value.CreateInstance();
-        }
+        set => SetEnemyStats(value);
+    }
+    void SetEnemyStats(EnemyStats value)
+    {
+        if (value == null) { return; }
+        _stats = (EnemyStats)value.CreateInstance();
+        _stats.OnStatsChanged += UpdateCharacter;
+        _stats.OnStatsChanged += UpdateAction;
+
+        UpdateCharacter();
     }
 
-    [Export] Sprite2D sprite2D;
-    [Export] StatsUI statsUI;
-    [Export] IntentUI intentUI;
-    [Export] Sprite2D selected;
+    Sprite2D sprite2D;
+    StatsUI statsUI;
+    IntentUI intentUI;
+    Sprite2D selected;
 
     EnemyActionPicker enemyAI;
     EnemyAction _currentAction;
@@ -37,10 +44,12 @@ public partial class Enemy : Area2D
 
     public override void _Ready()
     {
-        UpdateCharacter();
-        SetupAI();
-        Stats.OnStatsChanged += UpdateCharacter;
-        Stats.OnStatsChanged += UpdateAction;
+        sprite2D = GetNode<Sprite2D>("Sprite2D");
+        statsUI = GetNode<StatsUI>("StatsUI");
+        intentUI = GetNode<IntentUI>("IntentUI");
+        selected = GetNode<Sprite2D>("Selected");
+        
+        SetEnemyStats(_stats);
     }
 
     public void UpdateAction()
@@ -65,6 +74,7 @@ public partial class Enemy : Area2D
         if (!IsInstanceValid(this)) { return; }
         sprite2D.Texture = Stats.art;
         statsUI.UpdateStats(Stats);
+        SetupAI();
     }
 
     public void TakeTurn()

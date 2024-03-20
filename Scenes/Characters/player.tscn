@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b83tepqvqdk38"]
+[gd_scene load_steps=4 format=3 uid="uid://b83tepqvqdk38"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_nbwsv"]
+[ext_resource type="Texture2D" uid="uid://dex6vkhropp0u" path="res://Assets/Tiny Dungeon/Tiles/tile_0087.png" id="2_iwpj1"]
 [ext_resource type="PackedScene" uid="uid://cuqaf1t07gil7" path="res://Scenes/UI/stats_ui.tscn" id="2_nupg3"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("sprite2D", "statsUI") groups=["Player"]]
+[node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_nbwsv")
-sprite2D = NodePath("Sprite2D")
-statsUI = NodePath("StatsUI")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
+texture = ExtResource("2_iwpj1")
 
 [node name="StatsUI" parent="." instance=ExtResource("2_nupg3")]
 offset_left = -94.0

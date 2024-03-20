@@ -63,39 +63,6 @@ public partial class Run : Node
         }
     }
 
-    private void HandleMapExited(Room room)
-    {
-        switch (room.roomType)
-        {
-            case Room.RoomType.MONSTER:
-                ChangeView(GameConstants.BATTLE_SCENE);
-                break;
-            case Room.RoomType.TREASURE:
-                ChangeView(GameConstants.TREASURE_SCENE);
-                break;
-            case Room.RoomType.CAMPFIRE:
-                ChangeView(GameConstants.CAMPFIRE_SCENE);
-                break;
-            case Room.RoomType.SHOP:
-                ChangeView(GameConstants.SHOP_SCENE);
-                break;
-            case Room.RoomType.BOSS:
-                ChangeView(GameConstants.BATTLE_SCENE);
-                break;
-        }
-    }
-
-    private void HandleBattleWon()
-    {
-        BattleReward rewardScene = (BattleReward)ChangeView(GameConstants.BATTLE_REWARD_SCENE);
-        rewardScene.runStats = stats;
-        rewardScene.characterStats = character;
-
-        // DEBUG
-        rewardScene.AddGoldReward(100);
-        rewardScene.AddCardReward();
-    }
-
     private void StartRun()
     {
         stats = new();
@@ -139,6 +106,46 @@ public partial class Run : Node
 
         map.ShowMap();
         map.UnlockNextRooms();
+    }
+
+    private void HandleMapExited(Room room)
+    {
+        switch (room.roomType)
+        {
+            case Room.RoomType.MONSTER:
+                HandleBattleRoomEntered(room);
+                break;
+            case Room.RoomType.TREASURE:
+                ChangeView(GameConstants.TREASURE_SCENE);
+                break;
+            case Room.RoomType.CAMPFIRE:
+                ChangeView(GameConstants.CAMPFIRE_SCENE);
+                break;
+            case Room.RoomType.SHOP:
+                ChangeView(GameConstants.SHOP_SCENE);
+                break;
+            case Room.RoomType.BOSS:
+                HandleBattleRoomEntered(room);
+                break;
+        }
+    }
+
+    private void HandleBattleRoomEntered(Room room)
+    {
+        Battle battle_scene = (Battle)ChangeView(GameConstants.BATTLE_SCENE);
+        battle_scene.characterStats = character;
+        battle_scene.battleStats = room.battleStats;
+        battle_scene.StartBattle();
+    }
+
+    private void HandleBattleWon()
+    {
+        BattleReward rewardScene = (BattleReward)ChangeView(GameConstants.BATTLE_REWARD_SCENE);
+        rewardScene.runStats = stats;
+        rewardScene.characterStats = character;
+
+        rewardScene.AddGoldReward(map.lastRoom.battleStats.RollGoldReward());
+        rewardScene.AddCardReward();
     }
 
 }

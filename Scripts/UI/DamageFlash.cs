@@ -3,13 +3,15 @@ using Godot;
 
 public partial class DamageFlash : CanvasLayer
 {
-    [Export] Timer timer;
-    [Export] ColorRect colorRect;
+    Timer timer;
+    ColorRect colorRect;
 
     public override void _Ready()
     {
-        GameEvents.OnPlayerHit += HandlePlayerHit;
+        timer = GetNode<Timer>("Timer");
         timer.Timeout += () => colorRect.Color = new Color(colorRect.Color, 0);
+        colorRect = GetNode<ColorRect>("ColorRect");
+        GameEvents.OnPlayerHit += HandlePlayerHit;
     }
 
     private void HandlePlayerHit()

@@ -18,6 +18,9 @@ public partial class Room : Resource
     [Export] public Vector2 position;
     [Export] public Room[] nextRooms;
     [Export] public bool selected = false;
+    
+    // Only used by MONSTER and BOSS
+    [Export] public BattleStats battleStats;
 
     public override string ToString()
     {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0j5akna0cvjm"]
+[gd_scene load_steps=19 format=3 uid="uid://0j5akna0cvjm"]
 
 [ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="1_c866d"]
 [ext_resource type="Script" path="res://Scripts/Battle/Battle.cs" id="1_j1ws3"]
@@ -7,11 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cu1lq5oqsx63p" path="res://Assets/Music/Retro Mystic.ogg" id="2_x7rbm"]
 [ext_resource type="PackedScene" uid="uid://opn1vjrow5o0" path="res://Scenes/Card Target/card_target_selector.tscn" id="3_0j4dx"]
 [ext_resource type="PackedScene" uid="uid://b83tepqvqdk38" path="res://Scenes/Characters/player.tscn" id="3_7l36r"]
-[ext_resource type="Resource" uid="uid://cf0wa883w5t1i" path="res://Resources/Enemy/Crab/crab_enemy.tres" id="3_wj3f0"]
-[ext_resource type="Resource" uid="uid://bqtc1lkmaqlhn" path="res://Resources/Characters/Warrior/Warrior.tres" id="4_exrep"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyHandler.cs" id="4_meax3"]
 [ext_resource type="Script" path="res://Scripts/UI/BattleUI.cs" id="7_1ec25"]
-[ext_resource type="Resource" uid="uid://dxwxp1tet5r35" path="res://Resources/Enemy/Bat/bat_enemy.tres" id="8_sw7du"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerHandler.cs" id="8_w8ejo"]
 [ext_resource type="PackedScene" uid="uid://dpp5l6na7sdgw" path="res://Scenes/UI/mana_ui.tscn" id="11_wu3pj"]
 [ext_resource type="PackedScene" uid="uid://bghvehx1abp7" path="res://Scenes/UI/tooltip.tscn" id="12_55bfs"]
@@ -27,7 +24,6 @@ size = Vector2(1153, 415)
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_j1ws3")
 music = ExtResource("2_x7rbm")
-_characterStats = ExtResource("4_exrep")
 
 [node name="Background" type="TileMap" parent="."]
 modulate = Color(0.352941, 0.352941, 0.352941, 1)
@@ -53,20 +49,14 @@ position = Vector2(249, 296)
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_meax3")
 
-[node name="BattEnemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
+[node name="BatEnemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(767, 251)
-scale = Vector2(1, 1)
-Stats = ExtResource("8_sw7du")
 
 [node name="CrabEnemy" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(888, 333)
-scale = Vector2(1, 1)
-Stats = ExtResource("3_wj3f0")
 
 [node name="BatEnemy2" parent="EnemyHandler" instance=ExtResource("2_nu7rj")]
 position = Vector2(1031, 253)
-scale = Vector2(1, 1)
-Stats = ExtResource("8_sw7du")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("8_w8ejo")
@@ -119,7 +109,7 @@ theme = ExtResource("13_nfq77")
 disabled = true
 text = "END TURN"
 
-[node name="DrawPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("17_1rcad")]
+[node name="DrawPileButton" parent="BattleUI" instance=ExtResource("17_1rcad")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -128,7 +118,6 @@ offset_top = -100.0
 offset_right = 100.0
 offset_bottom = -35.0
 grow_vertical = 0
-counter = NodePath("Label")
 
 [node name="Label" type="Label" parent="BattleUI/DrawPileButton"]
 layout_mode = 1
@@ -146,7 +135,7 @@ grow_vertical = 0
 text = "99"
 vertical_alignment = 1
 
-[node name="DiscardPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("17_1rcad")]
+[node name="DiscardPileButton" parent="BattleUI" instance=ExtResource("17_1rcad")]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -158,7 +147,6 @@ offset_right = -35.0
 offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
-counter = NodePath("Label")
 
 [node name="Label" type="Label" parent="BattleUI/DiscardPileButton"]
 layout_mode = 1
@@ -177,11 +165,9 @@ text = "99"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="DamageFlash" type="CanvasLayer" parent="." node_paths=PackedStringArray("timer", "colorRect")]
+[node name="DamageFlash" type="CanvasLayer" parent="."]
 layer = 2
 script = ExtResource("15_gnucy")
-timer = NodePath("Timer")
-colorRect = NodePath("ColorRect")
 
 [node name="ColorRect" type="ColorRect" parent="DamageFlash"]
 anchors_preset = 15

@@ -15,6 +15,8 @@ public partial class MapGenerator : Node
     const float CAMPFIRE_ROOM_WEIGHT = 4.0f;
     const float SHOP_ROOM_WEIGHT = 2.5f;
 
+    [Export] public BattleStatsPool battleStatsPool;
+
     Dictionary<Room.RoomType, float> randomRoomTypeWeights = new()
     {
         {Room.RoomType.MONSTER, 0.0f},
@@ -38,6 +40,7 @@ public partial class MapGenerator : Node
                 cur_j = SetupConnection(i, cur_j);
             }
         }
+        battleStatsPool.Setup();
 
         SetupBossRoom();
         SetupRandomRoomWeights();
@@ -53,7 +56,8 @@ public partial class MapGenerator : Node
         {
             if (mapData[0,j].nextRooms.Length>0)
             {
-                mapData[0,j].roomType = Room.RoomType.MONSTER;                
+                mapData[0,j].roomType = Room.RoomType.MONSTER;
+                mapData[0,j].battleStats = battleStatsPool.GetRandomBattleForTier(0);
             }
         }
 
@@ -111,6 +115,15 @@ public partial class MapGenerator : Node
             campfireOn13 = isCampfire && room.row == 12;            
         }
         room.roomType = candidate;
+        if (candidate == Room.RoomType.MONSTER)
+        {
+            var tierForMonsterRooms = 0;
+            if (room.row > 2)
+            {
+                tierForMonsterRooms = 1;
+            }
+            room.battleStats = battleStatsPool.GetRandomBattleForTier(tierForMonsterRooms);
+        }
     }
 
     private bool RoomHasParentType(Room room, Room.RoomType roomType)
@@ -184,11 +197,13 @@ public partial class MapGenerator : Node
             Room currentRoom = mapData[FLOORS-2,j];
             if (currentRoom.nextRooms.Length>0)
             {
-                currentRoom.nextRooms.Append(bossRoom);
+                currentRoom.nextRooms = new Room[0];
+                currentRoom.nextRooms = currentRoom.nextRooms.Append(bossRoom).ToArray();
             }
         }
 
         bossRoom.roomType = Room.RoomType.BOSS;
+        bossRoom.battleStats = battleStatsPool.GetRandomBattleForTier(2);
     }
 
     private int SetupConnection(int i, int j)
@@ -200,8 +215,7 @@ public partial class MapGenerator : Node
             int roll = Math.Clamp(Random.Shared.Next(j-1, j+1), 0, MAP_WIDTH - 1);
             nextRoom = mapData[i+1, roll];
         }
-        //currentRoom.nextRooms = (Room[])currentRoom.nextRooms.Append(nextRoom).ToArray();
-        currentRoom.nextRooms.Append(nextRoom);
+        currentRoom.nextRooms = currentRoom.nextRooms.Append(nextRoom).ToArray();
         return nextRoom.column;
     }
 
@@ -257,7 +271,6 @@ public partial class MapGenerator : Node
                 yCoord.Add(roll);
             }
         }
-        
         return yCoord.ToArray();
     }
 
