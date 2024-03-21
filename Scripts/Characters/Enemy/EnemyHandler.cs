@@ -41,7 +41,7 @@ public partial class EnemyHandler : Node2D
             Enemy newEnemy = (Enemy)enemy.Duplicate();
             AddChild(newEnemy);
         }
-        //allNewEnemies.QueueFree();
+        allNewEnemies.QueueFree();
     }
 
     private void HandleEnemyActionFinished(Enemy enemy)

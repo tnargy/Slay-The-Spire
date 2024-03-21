@@ -19,7 +19,7 @@ public partial class CardRewards : ColorRect
         ClearRewards();
         foreach (Card card in _rewards)
         {
-            PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
+            PackedScene scene = GD.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
             CardMenuUI newCard = (CardMenuUI)scene.Instantiate();
             newCard.card = card;
             cards.AddChild(newCard);

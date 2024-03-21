@@ -59,7 +59,7 @@ public partial class CardPileView : Control
 
         foreach (Card card in allCards.cards)
         {
-            PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
+            PackedScene scene = GD.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
             CardMenuUI newCard = (CardMenuUI)scene.Instantiate();
             cards.AddChild(newCard);
             newCard.card = card;

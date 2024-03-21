@@ -7,19 +7,22 @@ public partial class Hand : HBoxContainer
     public CharacterStats CharStats
     {
         get => _characterStats;
-        set
-        {
-            _characterStats = value;
-        }
+        set => SetStats(value);
+    }
+    void SetStats(CharacterStats value)
+    {
+        if (value == null) { return; }
+        _characterStats = value;
     }
     PackedScene cardUI;
     private int cardsPlayedThisTurn = 0;
 
     public override void _Ready()
     {
-        cardUI = ResourceLoader.Load<PackedScene>("res://Scenes/UI/Card UI/card_ui.tscn");
+        cardUI = GD.Load<PackedScene>("res://Scenes/UI/Card UI/card_ui.tscn");
         CardUI.OnReparentRequest += HandleReparentRequest;
         GameEvents.OnCardPlayed += (card) => cardsPlayedThisTurn++;
+        SetStats(_characterStats);
     }
 
     public void AddCard(Card card)

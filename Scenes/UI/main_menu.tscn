@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://ygfibhyiamll"]
 
-[ext_resource type="Texture2D" uid="uid://dje54y3eaajnk" path="res://Assets/Tiny Dungeon/Tiles/tile_0084.png" id="1_1qck2"]
+[ext_resource type="Texture2D" uid="uid://rjyaauo1gbop" path="res://Assets/Tiny Dungeon/Tiles/tile_0084.png" id="1_1qck2"]
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu.cs" id="1_h0ds6"]
-[ext_resource type="Texture2D" uid="uid://y5jnmyr716uq" path="res://Assets/Tiny Dungeon/Tiles/tile_0087.png" id="2_wse4q"]
-[ext_resource type="Texture2D" uid="uid://bbw3h1u0jf850" path="res://Assets/Tiny Dungeon/Tiles/tile_0088.png" id="3_vn6ct"]
-[ext_resource type="Texture2D" uid="uid://tu1io6ugk487" path="res://Assets/Tiny Dungeon/Tiles/tile_0120.png" id="4_3o08n"]
-[ext_resource type="Texture2D" uid="uid://bct08df01ch17" path="res://Assets/Tiny Dungeon/Tiles/tile_0108.png" id="5_qhycu"]
-[ext_resource type="Texture2D" uid="uid://cfi0bwqjh6tec" path="res://Assets/Tiny Dungeon/Tiles/tile_0110.png" id="6_nri6q"]
+[ext_resource type="Texture2D" uid="uid://dex6vkhropp0u" path="res://Assets/Tiny Dungeon/Tiles/tile_0087.png" id="2_wse4q"]
+[ext_resource type="Texture2D" uid="uid://cyi626v7soueh" path="res://Assets/Tiny Dungeon/Tiles/tile_0088.png" id="3_vn6ct"]
+[ext_resource type="Texture2D" uid="uid://b8qhjg6h5e0qr" path="res://Assets/Tiny Dungeon/Tiles/tile_0120.png" id="4_3o08n"]
+[ext_resource type="Texture2D" uid="uid://bfrlyiaebnni3" path="res://Assets/Tiny Dungeon/Tiles/tile_0108.png" id="5_qhycu"]
+[ext_resource type="Texture2D" uid="uid://cwrm05rnp1k0i" path="res://Assets/Tiny Dungeon/Tiles/tile_0110.png" id="6_nri6q"]
 
 [sub_resource type="Gradient" id="Gradient_1o61q"]
 colors = PackedColorArray(0.233376, 0.132774, 0.00241157, 1, 0.0562916, 0.0562916, 0.0562916, 1)

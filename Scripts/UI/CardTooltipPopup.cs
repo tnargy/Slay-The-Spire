@@ -29,7 +29,7 @@ public partial class CardTooltipPopup : Control
 
     public void Show_Tooltip(Card card)
     {
-        PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
+        PackedScene scene = GD.Load<PackedScene>(GameConstants.CARD_MENU_UI_SCENE);
         CardMenuUI newCard = (CardMenuUI)scene.Instantiate();
         cardTooltip.AddChild(newCard);
 

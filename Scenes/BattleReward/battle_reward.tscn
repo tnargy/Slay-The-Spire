@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/BattleReward/BattleReward.cs" id="1_yuaj3"]
 [ext_resource type="TileSet" uid="uid://ogitbce5lj54" path="res://Assets/tiles.tres" id="2_aetov"]
 [ext_resource type="PackedScene" uid="uid://d13se86p0r8hp" path="res://Scenes/BattleReward/reward_button.tscn" id="3_pfdp5"]
-[ext_resource type="Texture2D" uid="uid://cb0ynvswjhe7w" path="res://Assets/gold.png" id="4_f0kvi"]
-[ext_resource type="Texture2D" uid="uid://cu6mlya0gdc30" path="res://Assets/rarity.png" id="5_k12ie"]
+[ext_resource type="Texture2D" uid="uid://bsmi4iaxju8vf" path="res://Assets/gold.png" id="4_f0kvi"]
+[ext_resource type="Texture2D" uid="uid://dwkj05wssepmo" path="res://Assets/rarity.png" id="5_k12ie"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5pdwf"]
 font_size = 50

@@ -68,7 +68,7 @@ public partial class Map : Node2D
 
     private void SpawnRoom(Room room)
     {
-        PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.MAP_ROOM_SCENE);
+        PackedScene scene = GD.Load<PackedScene>(GameConstants.MAP_ROOM_SCENE);
         MapRoom newMapRoom = (MapRoom)scene.Instantiate();
         rooms.AddChild(newMapRoom);
         newMapRoom.room = room;
@@ -102,7 +102,7 @@ public partial class Map : Node2D
 
         foreach (Room next in room.nextRooms)
         {
-            PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.MAP_LINE_SCENE);
+            PackedScene scene = GD.Load<PackedScene>(GameConstants.MAP_LINE_SCENE);
             Line2D newMapLine = (Line2D)scene.Instantiate();
             newMapLine.AddPoint(room.position);
             newMapLine.AddPoint(next.position);

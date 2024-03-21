@@ -71,7 +71,6 @@ public partial class Enemy : Area2D
 
     void UpdateCharacter()
     {
-        if (!IsInstanceValid(this)) { return; }
         sprite2D.Texture = Stats.art;
         statsUI.UpdateStats(Stats);
         SetupAI();

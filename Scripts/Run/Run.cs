@@ -7,15 +7,6 @@ public partial class Run : Node
     GoldUI goldUI;
     CardPileButton deckButton;
     CardPileView deckView;
-
-    // DEBUG Menu
-    Button BattleBtn;
-    Button RewardBtn;
-    Button CampfireBtn;
-    Button MapBtn;
-    Button ShopBtn;
-    Button TreasureBtn;
-
     RunStats stats;
     CharacterStats character;
     [Export] public RunStartup runStartup;
@@ -28,21 +19,6 @@ public partial class Run : Node
         deckButton = GetNode<CardPileButton>("%DeckButton");
         deckView = GetNode<CardPileView>("%DeckView");
         
-        // DEBUG Menu
-        MapBtn = GetNode<Button>("%MapBtn");
-        BattleBtn = GetNode<Button>("%BattleBtn");
-        ShopBtn = GetNode<Button>("%ShopBtn");
-        TreasureBtn = GetNode<Button>("%TreasureBtn");
-        RewardBtn = GetNode<Button>("%RewardBtn");
-        CampfireBtn = GetNode<Button>("%CampfireBtn");
-        MapBtn.Pressed += ShowMap;
-        BattleBtn.Pressed += () => ChangeView(GameConstants.BATTLE_SCENE);
-        ShopBtn.Pressed += () => ChangeView(GameConstants.SHOP_SCENE);
-        TreasureBtn.Pressed += () => ChangeView(GameConstants.TREASURE_SCENE);
-        RewardBtn.Pressed += () => ChangeView(GameConstants.BATTLE_REWARD_SCENE);
-        CampfireBtn.Pressed += () => ChangeView(GameConstants.CAMPFIRE_SCENE);
-        
-
         GameEvents.OnBattleRewardExited += ShowMap;
         GameEvents.OnCampfireExited += ShowMap;
         GameEvents.OnShopExited += ShowMap;
@@ -89,7 +65,7 @@ public partial class Run : Node
         }
 
         GetTree().Paused = false;
-        PackedScene scene = ResourceLoader.Load<PackedScene>(path);
+        PackedScene scene = GD.Load<PackedScene>(path);
         Node newView = scene.Instantiate();
         currentView.AddChild(newView);
         map.HideMap();

@@ -10,11 +10,11 @@ public partial class BattleReward : Control
     [Export] Button backButton;
     
     VBoxContainer rewards;
-    PackedScene rewardButtonScene = ResourceLoader.Load<PackedScene>("res://Scenes/BattleReward/reward_button.tscn");
-    PackedScene cardRewardScene = ResourceLoader.Load<PackedScene>("res://Scenes/UI/card_rewards.tscn");
-    Texture2D goldIcon = ResourceLoader.Load<Texture2D>("res://Assets/gold.png");
+    PackedScene rewardButtonScene = GD.Load<PackedScene>("res://Scenes/BattleReward/reward_button.tscn");
+    PackedScene cardRewardScene = GD.Load<PackedScene>("res://Scenes/UI/card_rewards.tscn");
+    Texture2D goldIcon = GD.Load<Texture2D>("res://Assets/gold.png");
     string goldText = " gold";
-    Texture2D cardIcon = ResourceLoader.Load<Texture2D>("res://Assets/rarity.png");
+    Texture2D cardIcon = GD.Load<Texture2D>("res://Assets/rarity.png");
     string cardText = "Add New Card";
 
     float cardRewardTotalWeight = 0.0f;

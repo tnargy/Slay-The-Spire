@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://clt6nuid401id" path="res://Scenes/Run/run_startup.tres" id="2_r80jc"]
 [ext_resource type="PackedScene" uid="uid://c8qsxqgp6485t" path="res://Scenes/UI/gold_ui.tscn" id="4_fahey"]
 [ext_resource type="PackedScene" uid="uid://bcaxwy2jbx22q" path="res://Scenes/UI/card_pile_button.tscn" id="4_jjab6"]
-[ext_resource type="Texture2D" uid="uid://cef8dg6utkjp1" path="res://Assets/deck.png" id="5_65ni0"]
+[ext_resource type="Texture2D" uid="uid://do10shkckl0ne" path="res://Assets/deck.png" id="5_65ni0"]
 [ext_resource type="PackedScene" uid="uid://devsd8puoakx8" path="res://Scenes/UI/Card UI/card_pile_view.tscn" id="6_sdi7h"]
 
 [node name="Run" type="Node" node_paths=PackedStringArray("map")]
@@ -17,44 +17,6 @@ map = NodePath("Map")
 
 [node name="CurrentView" type="Node" parent="."]
 unique_name_in_owner = true
-
-[node name="DebugMenu" type="VBoxContainer" parent="."]
-visible = false
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="MapBtn" type="Button" parent="DebugMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Map"
-
-[node name="BattleBtn" type="Button" parent="DebugMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Battle"
-
-[node name="ShopBtn" type="Button" parent="DebugMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Shop"
-
-[node name="TreasureBtn" type="Button" parent="DebugMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Treasure"
-
-[node name="RewardBtn" type="Button" parent="DebugMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Rewards"
-
-[node name="CampfireBtn" type="Button" parent="DebugMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Campfire"
 
 [node name="TopBar" type="CanvasLayer" parent="."]
 layer = 3

@@ -17,7 +17,7 @@ public partial class MainMenu : Control
 
     private void HandleNewGameBtnPressed()
     {
-        PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.CHAR_SELECTOR_SCENE);
+        PackedScene scene = GD.Load<PackedScene>(GameConstants.CHAR_SELECTOR_SCENE);
         GetTree().ChangeSceneToPacked(scene);
     }
 

@@ -13,14 +13,21 @@ public partial class ManaUI : Panel
     {
         if (value == null) { return; }
         _characterStats = value;
-        _characterStats.OnStatsChanged += 
-            () => manaLabel.Text = $"{characterStats.Mana}/{characterStats.maxMana}";
+        _characterStats.OnStatsChanged += HandleStatsChanged;
+
+        HandleStatsChanged();
     }
+
+    private void HandleStatsChanged()
+    {
+        manaLabel.Text = $"{characterStats.Mana}/{characterStats.maxMana}";
+    }
+
     
     Label manaLabel;
     
     public override void _Ready()
     {
-        manaLabel = GetNode<Label>("Label");
+        manaLabel = GetNode<Label>("%ManaLabel");
     }
 }

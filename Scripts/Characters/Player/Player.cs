@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class Player : Node2D
@@ -7,11 +6,13 @@ public partial class Player : Node2D
     public CharacterStats characterStats
     {
         get => _characterStats;
-        set
-        {
-            _characterStats = value;
-            _characterStats.OnStatsChanged += UpdateCharacter;
-        }
+        set => SetStats(value);
+    }
+    void SetStats(CharacterStats value)
+    {
+        if (value == null) { return; }
+        _characterStats = value;
+        _characterStats.OnStatsChanged += UpdateCharacter;
     }
     
     Sprite2D sprite2D;
@@ -21,11 +22,11 @@ public partial class Player : Node2D
     {
         sprite2D = GetNode<Sprite2D>("Sprite2D");
         statsUI = GetNode<StatsUI>("StatsUI");
+        SetStats(_characterStats);
     }
 
     void UpdateCharacter()
     {
-        if (!IsInstanceValid(this)) { return; }
         sprite2D.Texture = characterStats.art;
         statsUI.UpdateStats(characterStats);
     }

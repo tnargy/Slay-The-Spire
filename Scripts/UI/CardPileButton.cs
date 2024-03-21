@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class CardPileButton : TextureButton
@@ -9,10 +10,16 @@ public partial class CardPileButton : TextureButton
         set 
         {
             _cardPile = value;
-            _cardPile.OnCardPileChanged += (amount) => counter.Text = amount.ToString();
+            _cardPile.OnCardPileChanged += HandleCardPileChanged;
         }
     }
-    
+
+    private void HandleCardPileChanged(int amount)
+    {
+        counter.Text = amount.ToString();
+    }
+
+
     Label counter;
 
     public override void _Ready()

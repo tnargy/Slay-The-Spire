@@ -40,7 +40,7 @@ public partial class CharacterSelector : Control
     {
         runStartup.runType = RunStartup.RunType.NEW;
         runStartup.selectedCharacterStats = Stats;
-        PackedScene scene = ResourceLoader.Load<PackedScene>(GameConstants.RUN_SCENE);
+        PackedScene scene = GD.Load<PackedScene>(GameConstants.RUN_SCENE);
         GetTree().ChangeSceneToPacked(scene);
     }
 

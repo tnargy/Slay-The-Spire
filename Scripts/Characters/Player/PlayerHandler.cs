@@ -35,6 +35,11 @@ public partial class PlayerHandler : Node
     public void EndTurn()
     {
         hand.DisableHand();
+        if (hand.GetChildCount() == 0)
+        {
+            GameEvents.RaiseHandDiscarded();
+            return;
+        }
         DiscardCards();
     }
 

@@ -31,10 +31,15 @@ public partial class BattleUI : CanvasLayer
         drawPileView = GetNode<CardPileView>("%DrawView");
         discardPileView = GetNode<CardPileView>("%DiscardView");
 
-        GameEvents.OnHandDrawn += () => endTurn.Disabled = false;
+        GameEvents.OnHandDrawn += HandleHandDrawn;
         endTurn.Pressed += HandleEndTurn;
         drawPileButton.Pressed += () => drawPileView.ShowCurrentView("Draw Pile", true);
         discardPileButton.Pressed += () => discardPileView.ShowCurrentView("Discard Pile");
+    }
+
+    private void HandleHandDrawn()
+    {
+        endTurn.Disabled = false;
     }
 
     public void InitCardPileUI()

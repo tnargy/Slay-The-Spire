@@ -40,7 +40,6 @@ public partial class CardUI : Control
 		get => _playable;
 		set
 		{
-			if (!IsInstanceValid(this)) { return; }
 			_playable = value;
 			if (!_playable)
 			{
