@@ -40,6 +40,7 @@ public partial class CardUI : Control
 		get => _playable;
 		set
 		{
+			if (!IsInstanceValid(this)) { return; }
 			_playable = value;
 			if (!_playable)
 			{
@@ -77,6 +78,14 @@ public partial class CardUI : Control
 		GameEvents.OnCardDragStarted += HandleCardAimingOrDraggingStarted;
 		GameEvents.OnCardAimingEnded += HandleCardAimingOrDraggingEnded;
 		GameEvents.OnCardDragEnded += HandleCardAimingOrDraggingEnded;
+    }
+
+    public override void _ExitTree()
+    {
+		GameEvents.OnCardAimingStarted -= HandleCardAimingOrDraggingStarted;
+		GameEvents.OnCardDragStarted -= HandleCardAimingOrDraggingStarted;
+		GameEvents.OnCardAimingEnded -= HandleCardAimingOrDraggingEnded;
+		GameEvents.OnCardDragEnded -= HandleCardAimingOrDraggingEnded;
     }
 
     private void HandleCardAimingOrDraggingStarted(CardUI usedCard)

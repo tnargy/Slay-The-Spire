@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using Godot;
 
 public partial class Battle : Node2D
@@ -22,10 +23,18 @@ public partial class Battle : Node2D
 
         enemyHandler.ChildOrderChanged += HandleEnemyChanges;
         GameEvents.OnEnemyTurnEnded += HandleEnemyTurnEnded;
-        GameEvents.OnEndTurn += () => playerHandler.EndTurn();
-        GameEvents.OnHandDiscarded += () => enemyHandler.StartTurn();
-        GameEvents.OnPlayerDied += 
-            () => GameEvents.RaiseBattleOverScreen("Game Over", BattleOverPanel.Type.LOSE);
+        GameEvents.OnEndTurn += HandleEndTurn;
+        GameEvents.OnHandDiscarded += HandleHandDiscarded;
+        GameEvents.OnPlayerDied += HandlePlayerDied;
+    }
+
+    public override void _ExitTree()
+    {
+        enemyHandler.ChildOrderChanged -= HandleEnemyChanges;
+        GameEvents.OnEnemyTurnEnded -= HandleEnemyTurnEnded;
+        GameEvents.OnEndTurn -= HandleEndTurn;
+        GameEvents.OnHandDiscarded -= HandleHandDiscarded;
+        GameEvents.OnPlayerDied -= HandlePlayerDied;
     }
 
     public void StartBattle()
@@ -40,6 +49,10 @@ public partial class Battle : Node2D
         playerHandler.StartBattle(characterStats);
         battleUI.InitCardPileUI();
     }
+
+    void HandleEndTurn() => playerHandler.EndTurn();
+    void HandleHandDiscarded() => enemyHandler.StartTurn();
+    void HandlePlayerDied() => GameEvents.RaiseBattleOverScreen("Game Over", BattleOverPanel.Type.LOSE);
 
     private void HandleEnemyChanges()
     {

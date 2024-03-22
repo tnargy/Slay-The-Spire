@@ -37,6 +37,11 @@ public partial class BattleUI : CanvasLayer
         discardPileButton.Pressed += () => discardPileView.ShowCurrentView("Discard Pile");
     }
 
+    public override void _ExitTree()
+    {
+        GameEvents.OnHandDrawn -= HandleHandDrawn;
+    }
+
     private void HandleHandDrawn()
     {
         endTurn.Disabled = false;

@@ -19,6 +19,12 @@ public partial class CardTargetSelector : Node2D
         GameEvents.OnCardAimingEnded += HandleCardAimingEndeded;
     }
 
+    public override void _ExitTree()
+    {
+        GameEvents.OnCardAimingStarted -= HandleCardAimingStarted;
+        GameEvents.OnCardAimingEnded -= HandleCardAimingEndeded;
+    }
+
     public override void _Process(double delta)
     {
         if (!targeting) { return; }

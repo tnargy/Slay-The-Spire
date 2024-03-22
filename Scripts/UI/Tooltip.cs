@@ -17,11 +17,17 @@ public partial class Tooltip : PanelContainer
         Color modulate = Colors.Transparent;
         Hide();
 
-        GameEvents.OnTooltipRequested += (card) => ShowTooltip(card.icon, card.tooltopText);
+        GameEvents.OnTooltipRequested += ShowTooltip;
         GameEvents.OnTooltipHide += HideTooltip;
     }
 
-    public void ShowTooltip(Texture2D icon, string text)
+    public override void _ExitTree()
+    {
+        GameEvents.OnTooltipRequested -= ShowTooltip;
+        GameEvents.OnTooltipHide -= HideTooltip;
+    }
+
+    public void ShowTooltip(Card card)
     {
         isVisible = true;
         if (tween != null && tween.IsRunning())
@@ -29,8 +35,8 @@ public partial class Tooltip : PanelContainer
             tween.Kill();
         }
 
-        tooltipIcon.Texture = icon;
-        tooltipText.Text = text;
+        tooltipIcon.Texture = card.icon;
+        tooltipText.Text = card.tooltopText;
 
         tween = CreateTween().SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.Out);
         tween.TweenCallback(Callable.From(Show));

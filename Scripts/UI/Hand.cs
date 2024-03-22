@@ -21,8 +21,20 @@ public partial class Hand : HBoxContainer
     {
         cardUI = GD.Load<PackedScene>("res://Scenes/UI/Card UI/card_ui.tscn");
         CardUI.OnReparentRequest += HandleReparentRequest;
-        GameEvents.OnCardPlayed += (card) => cardsPlayedThisTurn++;
+        GameEvents.OnCardPlayed += HandleCardPlayed;
         SetStats(_characterStats);
+    }
+
+    private void HandleCardPlayed(Card card)
+    {
+        cardsPlayedThisTurn++;
+    }
+
+
+    public override void _ExitTree()
+    {
+        CardUI.OnReparentRequest -= HandleReparentRequest;
+        GameEvents.OnCardPlayed -= HandleCardPlayed;
     }
 
     public void AddCard(Card card)
@@ -40,6 +52,7 @@ public partial class Hand : HBoxContainer
 
     public void DisableHand()
     {
+        if (!IsInstanceValid(this)) { return; }
         foreach (CardUI item in GetChildren())
         {
             item.disabled = true;

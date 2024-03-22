@@ -9,6 +9,11 @@ public partial class EnemyHandler : Node2D
         GameEvents.OnEnemyActionFinished += HandleEnemyActionFinished;
     }
 
+    public override void _ExitTree()
+    {
+        GameEvents.OnEnemyActionFinished -= HandleEnemyActionFinished;
+    }
+
     public void ResetEnemyActions()
     {
         foreach (Enemy enemy in GetChildren().Where(T => T is Enemy))
@@ -20,7 +25,7 @@ public partial class EnemyHandler : Node2D
 
     public void StartTurn()
     {
-        if (GetChildCount() == 0) { return; }
+        if (!IsInstanceValid(this) || GetChildCount() == 0) { return; }
 
         Enemy firstEnemy = GetChild<Enemy>(0);
         firstEnemy.TakeTurn();

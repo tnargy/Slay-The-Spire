@@ -19,6 +19,11 @@ public partial class BattleOverPanel : Panel
         GameEvents.OnBattleOverScreenRequested += ShowScreen;
     }
 
+    public override void _ExitTree()
+    {
+        GameEvents.OnBattleOverScreenRequested -= ShowScreen;
+    }
+
     void ShowScreen(string text, Type type)
     {
         label.Text = text;

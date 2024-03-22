@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
     
@@ -13,7 +14,17 @@ public partial class PlayerHandler : Node
     public override void _Ready()
     {
         hand = GetNode<Hand>("%Hand");
-        GameEvents.OnCardPlayed += (card) => character.discardPile.AddCard(card);
+        GameEvents.OnCardPlayed += HandleCardPlayed;
+    }
+
+    public override void _ExitTree()
+    {
+        GameEvents.OnCardPlayed -= HandleCardPlayed;
+    }
+
+    private void HandleCardPlayed(Card card)
+    {
+        character.discardPile.AddCard(card);
     }
 
     public void StartBattle(CharacterStats characterStats)
@@ -35,16 +46,17 @@ public partial class PlayerHandler : Node
     public void EndTurn()
     {
         hand.DisableHand();
-        if (hand.GetChildCount() == 0)
-        {
-            GameEvents.RaiseHandDiscarded();
-            return;
-        }
         DiscardCards();
     }
 
     private void DiscardCards()
     {
+        if (!IsInstanceValid(hand) || hand.GetChildCount() == 0)
+        {
+            GameEvents.RaiseHandDiscarded();
+            return;
+        }
+
         var tween = CreateTween();
         foreach (CardUI cardUI in hand.GetChildren())
         {

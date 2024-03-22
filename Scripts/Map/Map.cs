@@ -15,6 +15,13 @@ public partial class Map : Node2D
     float cameraEdgeY;
     public Room lastRoom;
 
+    // swipe
+    int length = 100;
+    Vector2 startPos;
+    Vector2 curPos;
+    bool swiping = false;
+    int threshold = 10;
+
     public override void _Ready()
     {
         mapGenerator = GetNode<MapGenerator>("%MapGenerator");
@@ -34,6 +41,43 @@ public partial class Map : Node2D
             clampY = Math.Clamp(camera2D.Position.Y + GameConstants.SCROLL_SPEED, -cameraEdgeY, 0);
             camera2D.Position =  new Vector2(camera2D.Position.X, clampY);
         }
+    }
+
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed(GameConstants.INPUT_LEFT_CLICK))
+        {
+            if (!swiping)
+            {
+                swiping = true;
+                startPos = GetGlobalMousePosition();
+            }
+        }
+        if (Input.IsActionPressed(GameConstants.INPUT_LEFT_CLICK))
+        {
+            if (swiping)
+            {
+                curPos = GetGlobalMousePosition();
+                if (startPos.DistanceTo(curPos) >= length)
+                {
+                    if (Math.Abs(startPos.X-curPos.X) <= threshold)
+                    {
+                        float clampY;
+                        if (curPos.Y > startPos.Y)
+                        {
+                            clampY = Math.Clamp(camera2D.Position.Y - GameConstants.SCROLL_SPEED * 10, -cameraEdgeY, 0);
+                        }
+                        else
+                        {
+                            clampY = Math.Clamp(camera2D.Position.Y + GameConstants.SCROLL_SPEED * 10, -cameraEdgeY, 0);
+                        }
+                        camera2D.Position =  new Vector2(camera2D.Position.X, clampY);
+                        swiping = false;
+                    }
+                }
+            }
+        }
+        else { swiping = false; }
     }
 
     public void GenerateNewMap()

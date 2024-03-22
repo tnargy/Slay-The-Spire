@@ -14,16 +14,21 @@ public partial class CardPileButton : TextureButton
         }
     }
 
-    private void HandleCardPileChanged(int amount)
-    {
-        counter.Text = amount.ToString();
-    }
-
-
     Label counter;
 
     public override void _Ready()
     {
         counter = GetNode<Label>("Label");
     }
+
+    public override void _ExitTree()
+    {
+        _cardPile.OnCardPileChanged -= HandleCardPileChanged;
+    }
+
+    private void HandleCardPileChanged(int amount)
+    {
+        counter.Text = amount.ToString();
+    }
+
 }

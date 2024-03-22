@@ -14,6 +14,11 @@ public partial class DamageFlash : CanvasLayer
         GameEvents.OnPlayerHit += HandlePlayerHit;
     }
 
+    public override void _ExitTree()
+    {
+        GameEvents.OnPlayerHit -= HandlePlayerHit;
+    }
+
     private void HandlePlayerHit()
     {
         colorRect.Color = new Color(colorRect.Color, 0.15f);

@@ -25,6 +25,11 @@ public partial class Player : Node2D
         SetStats(_characterStats);
     }
 
+    public override void _ExitTree()
+    {
+        _characterStats.OnStatsChanged -= UpdateCharacter;
+    }
+
     void UpdateCharacter()
     {
         sprite2D.Texture = characterStats.art;
