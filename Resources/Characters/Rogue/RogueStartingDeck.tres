@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bajsnxfjg6v62"]
+
+[ext_resource type="Resource" uid="uid://ct24wa1tvpvnj" path="res://Resources/Characters/GeneralCards/AxeAttack.tres" id="1_jsnl1"]
+[ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/GeneralCards/BlockAction.tres" id="2_06ibw"]
+[ext_resource type="Resource" uid="uid://cppm3lvgimiia" path="res://Resources/Characters/Rogue/Cards/DualAttack.tres" id="3_70psd"]
+[ext_resource type="Script" path="res://Resources/Card/CardPile.cs" id="4_p3i6i"]
+
+[resource]
+script = ExtResource("4_p3i6i")
+cards = Array[Resource]([ExtResource("1_jsnl1"), ExtResource("1_jsnl1"), ExtResource("1_jsnl1"), ExtResource("1_jsnl1"), ExtResource("1_jsnl1"), ExtResource("2_06ibw"), ExtResource("2_06ibw"), ExtResource("3_70psd"), ExtResource("3_70psd")])

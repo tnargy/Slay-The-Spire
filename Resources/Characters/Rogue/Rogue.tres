@@ -1,13 +1,17 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bf5tbxwt653wl"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bf5tbxwt653wl"]
 
 [ext_resource type="Texture2D" uid="uid://cyi626v7soueh" path="res://Assets/Tiny Dungeon/Tiles/tile_0088.png" id="1_821kh"]
+[ext_resource type="Resource" uid="uid://bne8luh1uccm2" path="res://Resources/Characters/Warrior/WarriorDraftCards.tres" id="2_0w6k0"]
 [ext_resource type="Script" path="res://Resources/Characters/CharacterStats.cs" id="2_pw6pk"]
+[ext_resource type="Resource" uid="uid://bajsnxfjg6v62" path="res://Resources/Characters/Rogue/RogueStartingDeck.tres" id="4_uokho"]
 
 [resource]
 script = ExtResource("2_pw6pk")
 name = "Rogue"
 desc = "Sneaky lil backstabber."
 portrait = ExtResource("1_821kh")
+startingDeck = ExtResource("4_uokho")
+draftCards = ExtResource("2_0w6k0")
 cardsPerTurn = 5
 maxMana = 3
 maxHealth = 24

@@ -45,5 +45,6 @@ chanceWeight = 1.0
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_4jj0o")
+healthThreshold = 8
 intent = SubResource("Resource_u5gw8")
 sound = ExtResource("8_app24")

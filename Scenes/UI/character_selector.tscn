@@ -170,7 +170,6 @@ stretch_mode = 5
 [node name="RougeButton" type="Button" parent="CharacterButtons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-disabled = true
 toggle_mode = true
 button_group = SubResource("ButtonGroup_hhxf1")
 

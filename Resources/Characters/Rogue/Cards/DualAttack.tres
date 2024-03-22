@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cppm3lvgimiia"]
+
+[ext_resource type="Texture2D" uid="uid://dl0ip8t7348j5" path="res://Assets/Tiny Dungeon/Tiles/DualAttak.png" id="1_elpcs"]
+[ext_resource type="Script" path="res://Resources/Characters/Rogue/Cards/DualAttack.cs" id="2_hii0r"]
+[ext_resource type="AudioStream" uid="uid://b5cbrjfptbpff" path="res://Assets/SFX/sword1.ogg" id="3_hi04r"]
+
+[resource]
+script = ExtResource("2_hii0r")
+id = "Dual Attack"
+type = 0
+target = 1
+rarity = 0
+cost = 2
+icon = ExtResource("1_elpcs")
+tooltopText = "[center]Deal [color=\"ff0000\"]4[/color] damage twice.[/center]"
+sound = ExtResource("3_hi04r")

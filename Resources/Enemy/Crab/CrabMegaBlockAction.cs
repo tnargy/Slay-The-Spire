@@ -3,7 +3,7 @@ using Godot;
 public partial class CrabMegaBlockAction : EnemyAction
 {
     [Export] int block = 15;
-    [Export] int healthThreshold = 6;
+    [Export] int healthThreshold = 8;
 
     bool alreadyUsed = false;
 

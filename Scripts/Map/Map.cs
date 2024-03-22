@@ -20,7 +20,7 @@ public partial class Map : Node2D
     Vector2 startPos;
     Vector2 curPos;
     bool swiping = false;
-    int threshold = 10;
+    int threshold = 5;
 
     public override void _Ready()
     {
