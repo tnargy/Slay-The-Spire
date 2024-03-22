@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df5oa0mkahgqg"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CardMenuUI.cs" id="1_5hve7"]
-[ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/Warrior/Cards/WarriorBlock.tres" id="2_50i3k"]
+[ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/GeneralCards/BlockAction.tres" id="2_50i3k"]
 [ext_resource type="PackedScene" uid="uid://dg30eqofix4fh" path="res://Scenes/UI/card_visuals.tscn" id="3_ok5sw"]
 
 [node name="CardMenuUI" type="CenterContainer" node_paths=PackedStringArray("visuals")]

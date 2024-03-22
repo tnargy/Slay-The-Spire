@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg30eqofix4fh"]
+[gd_scene load_steps=7 format=3 uid="uid://dg30eqofix4fh"]
 
 [ext_resource type="Theme" uid="uid://bpl5afu4jb0cw" path="res://Resources/General/main_theme.tres" id="1_dlckl"]
 [ext_resource type="Script" path="res://Scripts/UI/CardVisuals.cs" id="2_8iano"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ok2qn2amg4pn" path="res://Assets/Tiny Dungeon/Tiles/tile_0103.png" id="3_ac0jd"]
 [ext_resource type="Texture2D" uid="uid://dwkj05wssepmo" path="res://Assets/rarity.png" id="4_vssw6"]
 
-[node name="CardVisuals" type="Control" node_paths=PackedStringArray("panel", "cost", "icon", "rarity")]
+[sub_resource type="LabelSettings" id="LabelSettings_fccjw"]
+
+[node name="CardVisuals" type="Control" node_paths=PackedStringArray("panel", "cost", "name", "icon", "rarity")]
 custom_minimum_size = Vector2(120, 160)
 layout_mode = 3
 anchors_preset = 0
@@ -15,6 +17,7 @@ theme = ExtResource("1_dlckl")
 script = ExtResource("2_8iano")
 panel = NodePath("Panel")
 cost = NodePath("Cost")
+name = NodePath("Name")
 icon = NodePath("Icon")
 rarity = NodePath("Rarity")
 
@@ -36,6 +39,24 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -34.0
+offset_right = 5.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 1)
+text = "Name"
+label_settings = SubResource("LabelSettings_fccjw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -44,9 +65,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
-offset_top = -25.0
+offset_top = -12.0
 offset_right = 25.0
-offset_bottom = 25.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

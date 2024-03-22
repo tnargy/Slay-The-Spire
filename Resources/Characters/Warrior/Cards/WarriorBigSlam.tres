@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_67gm1")
-id = "warrior_big_slam"
+id = "Big Slam"
 type = 0
 target = 1
 rarity = 1

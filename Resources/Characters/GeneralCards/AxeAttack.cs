@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class WarriorAxeAttack : Card
+public partial class AxeAttack : Card
 {
     public override void ApplyEffects(Node[] targets)
     {

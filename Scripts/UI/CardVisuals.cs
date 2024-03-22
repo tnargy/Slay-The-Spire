@@ -4,6 +4,7 @@ public partial class CardVisuals : Control
 {
     [Export] public Panel panel;
     [Export] public Label cost;
+    [Export] public Label name;
     [Export] public TextureRect icon;
     [Export] TextureRect rarity;
 
@@ -23,6 +24,7 @@ public partial class CardVisuals : Control
 
         _card = value;
         cost.Text = _card.cost.ToString();
+        name.Text = _card.id;
         icon.Texture = _card.icon;
         rarity.Modulate = Card.RARITY_COLORS[card.rarity];
     }

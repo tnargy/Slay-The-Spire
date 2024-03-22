@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_46gna")
-id = "warrior_slash"
+id = "Slash"
 type = 0
 target = 2
 rarity = 0

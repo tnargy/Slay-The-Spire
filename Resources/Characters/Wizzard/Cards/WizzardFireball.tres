@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bbp14vorh11sc"]
+
+[ext_resource type="Texture2D" uid="uid://bph2wbor8bifx" path="res://Assets/fireball.png" id="1_w43mw"]
+[ext_resource type="Script" path="res://Resources/Characters/Wizzard/Cards/WizzardFireball.cs" id="2_rrlxl"]
+[ext_resource type="AudioStream" uid="uid://cq0tscu5u1v4f" path="res://Assets/SFX/fireball.wav" id="3_qf270"]
+
+[resource]
+script = ExtResource("2_rrlxl")
+id = "Fireball"
+type = 0
+target = 1
+rarity = 1
+cost = 2
+icon = ExtResource("1_w43mw")
+tooltopText = "[center]Deal [color=\"ff0000\"]10[/color] damage.[/center]"
+sound = ExtResource("3_qf270")

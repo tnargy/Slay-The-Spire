@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dk2s7yq818xif"]
+
+[ext_resource type="Resource" uid="uid://ct24wa1tvpvnj" path="res://Resources/Characters/GeneralCards/AxeAttack.tres" id="1_k2ypw"]
+[ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/GeneralCards/BlockAction.tres" id="2_tpq2w"]
+[ext_resource type="Resource" uid="uid://bbp14vorh11sc" path="res://Resources/Characters/Wizzard/Cards/WizzardFireball.tres" id="3_17n1s"]
+[ext_resource type="Script" path="res://Resources/Card/CardPile.cs" id="4_7k7lq"]
+
+[resource]
+script = ExtResource("4_7k7lq")
+cards = Array[Resource]([ExtResource("1_k2ypw"), ExtResource("1_k2ypw"), ExtResource("1_k2ypw"), ExtResource("1_k2ypw"), ExtResource("2_tpq2w"), ExtResource("2_tpq2w"), ExtResource("2_tpq2w"), ExtResource("2_tpq2w"), ExtResource("3_17n1s"), ExtResource("3_17n1s")])

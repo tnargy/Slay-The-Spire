@@ -1,7 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://djw8kqkktmdl0"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://djw8kqkktmdl0"]
 
 [ext_resource type="Texture2D" uid="uid://rjyaauo1gbop" path="res://Assets/Tiny Dungeon/Tiles/tile_0084.png" id="1_1dxhu"]
+[ext_resource type="Resource" uid="uid://bne8luh1uccm2" path="res://Resources/Characters/Warrior/WarriorDraftCards.tres" id="2_1e1yh"]
 [ext_resource type="Script" path="res://Resources/Characters/CharacterStats.cs" id="2_vn2vs"]
+[ext_resource type="Resource" uid="uid://dk2s7yq818xif" path="res://Resources/Characters/Wizzard/WizzardStartingDeck.tres" id="4_dv28b"]
 
 [resource]
 script = ExtResource("2_vn2vs")
@@ -9,6 +11,8 @@ name = "Wizard"
 desc = "Years of wisdom and
 recurring back pain."
 portrait = ExtResource("1_1dxhu")
+startingDeck = ExtResource("4_dv28b")
+draftCards = ExtResource("2_1e1yh")
 cardsPerTurn = 3
 maxMana = 4
 maxHealth = 27
