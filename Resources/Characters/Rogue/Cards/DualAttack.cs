@@ -6,7 +6,7 @@ public partial class DualAttack : Card
 	{
 		Damage damageEffect = new()
 		{
-			amount = 4,
+			amount = 5,
 			sound = sound
 		};
 		Tween tween = targets[0].CreateTween();
