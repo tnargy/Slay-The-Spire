@@ -39,6 +39,16 @@ public partial class Run : Node
         }
     }
 
+    public override void _ExitTree()
+    {
+        GameEvents.OnBattleRewardExited -= ShowMap;
+        GameEvents.OnCampfireExited -= ShowMap;
+        GameEvents.OnShopExited -= ShowMap;
+        GameEvents.OnTreasureRoomExited -= ShowMap;
+        GameEvents.OnMapExited -= HandleMapExited;
+        GameEvents.OnBattleWon -= HandleBattleWon;
+    }
+
     private void StartRun()
     {
         stats = new();
@@ -95,7 +105,7 @@ public partial class Run : Node
                 ChangeView(GameConstants.TREASURE_SCENE);
                 break;
             case Room.RoomType.CAMPFIRE:
-                ChangeView(GameConstants.CAMPFIRE_SCENE);
+                HandleCampfireRoomEntered();
                 break;
             case Room.RoomType.SHOP:
                 ChangeView(GameConstants.SHOP_SCENE);
@@ -104,6 +114,12 @@ public partial class Run : Node
                 HandleBattleRoomEntered(room);
                 break;
         }
+    }
+
+    private void HandleCampfireRoomEntered()
+    {
+        Campfire campfire_scene = (Campfire)ChangeView(GameConstants.CAMPFIRE_SCENE);
+        campfire_scene.characterStats = character;
     }
 
     private void HandleBattleRoomEntered(Room room)

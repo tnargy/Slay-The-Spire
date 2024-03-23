@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dex6vkhropp0u" path="res://Assets/Tiny Dungeon/Tiles/tile_0087.png" id="1_wk35p"]
 [ext_resource type="Script" path="res://Resources/Characters/CharacterStats.cs" id="2_2oelu"]
 [ext_resource type="Resource" uid="uid://bne8luh1uccm2" path="res://Resources/Characters/Warrior/WarriorDraftCards.tres" id="2_mof7c"]
-[ext_resource type="Resource" uid="uid://bajsnxfjg6v62" path="res://Resources/Characters/Rogue/RogueStartingDeck.tres" id="3_dfdsh"]
+[ext_resource type="Resource" uid="uid://xmxmjhrhrd86" path="res://Resources/Characters/Warrior/WarriorStartingDeck.tres" id="3_dfdsh"]
 
 [resource]
 script = ExtResource("2_2oelu")

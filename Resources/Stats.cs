@@ -3,7 +3,7 @@ using System;
 
 public partial class Stats : Resource
 {
-    [Export(PropertyHint.Range, "1,100")] protected int maxHealth = 1;
+    [Export(PropertyHint.Range, "1,100")] public int maxHealth = 1;
     [Export] public Texture2D art { get; private set; }
 
     public event Action OnStatsChanged;

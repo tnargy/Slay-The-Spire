@@ -25,10 +25,7 @@ public partial class Player : Node2D
         SetStats(_characterStats);
     }
 
-    public override void _ExitTree()
-    {
-        _characterStats.OnStatsChanged -= UpdateCharacter;
-    }
+    public override void _ExitTree() => _characterStats.OnStatsChanged -= UpdateCharacter;
 
     void UpdateCharacter()
     {

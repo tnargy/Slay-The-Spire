@@ -1,8 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckhe1cnorfrx0"]
+[gd_scene load_steps=13 format=3 uid="uid://ckhe1cnorfrx0"]
 
-[ext_resource type="Script" path="res://Scripts/Shop/Shop.cs" id="1_x8xg5"]
+[ext_resource type="Script" path="res://Scripts/Campfire/Campfire.cs" id="1_j7cnc"]
+[ext_resource type="Texture2D" uid="uid://dex6vkhropp0u" path="res://Assets/Tiny Dungeon/Tiles/tile_0087.png" id="2_6wtfw"]
+[ext_resource type="Resource" uid="uid://djw8kqkktmdl0" path="res://Resources/Characters/Wizzard/Wizzard.tres" id="2_8eo5o"]
+[ext_resource type="Texture2D" uid="uid://cffl78i2actms" path="res://Assets/campfire.png" id="3_ytwhc"]
+[ext_resource type="PackedScene" uid="uid://cuqaf1t07gil7" path="res://Scenes/UI/stats_ui.tscn" id="4_0gfby"]
 
-[node name="Campfire" type="Control" node_paths=PackedStringArray("button")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8gwv"]
+atlas = ExtResource("3_ytwhc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muijk"]
+atlas = ExtResource("3_ytwhc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7q2q"]
+atlas = ExtResource("3_ytwhc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kwnl"]
+atlas = ExtResource("3_ytwhc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp0n3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8gwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muijk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7q2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kwnl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3ckr"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_jopqb"]
+font_size = 62
+font_color = Color(0.27451, 0.733333, 0, 1)
+shadow_color = Color(0.141176, 0.141176, 0.141176, 0.592157)
+
+[node name="Campfire" type="Control" node_paths=PackedStringArray("portrait")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,8 +58,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_x8xg5")
-button = NodePath("VBoxContainer/Button")
+script = ExtResource("1_j7cnc")
+portrait = NodePath("CharacterPortrait")
+_characterStats = ExtResource("2_8eo5o")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -21,7 +70,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.662745)
+color = Color(0, 0, 0, 0.462745)
+
+[node name="CharacterPortrait" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 166.0
+offset_top = 15.0
+offset_right = 366.0
+offset_bottom = 215.0
+grow_vertical = 2
+texture = ExtResource("2_6wtfw")
+stretch_mode = 5
+
+[node name="StatsUI" parent="CharacterPortrait" instance=ExtResource("4_0gfby")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = -110.0
+offset_top = 109.0
+offset_right = 118.0
+offset_bottom = 145.0
+alignment = 1
+
+[node name="Rest" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = 65.0
+offset_right = -197.0
+offset_bottom = 165.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Icon" type="AnimatedSprite2D" parent="Rest"]
+position = Vector2(50, 51)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_vp0n3")
+autoplay = "default"
+frame = 2
+frame_progress = 0.0261455
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -30,19 +126,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.5
-offset_top = -43.0
-offset_right = 70.5
-offset_bottom = 43.0
+offset_left = -200.0
+offset_top = -183.0
+offset_right = 200.0
+offset_bottom = 231.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Campfire"
+text = "Rest"
+label_settings = SubResource("LabelSettings_j3ckr")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
-text = "Go Back"
+text = "Take a rest by this campfire to restore 30% of your max health.
+
+
+"
+fit_content = true
+
+[node name="Heal" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "+1%"
+label_settings = SubResource("LabelSettings_jopqb")
+horizontal_alignment = 1
+vertical_alignment = 1

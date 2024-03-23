@@ -15,8 +15,14 @@ public partial class BattleOverPanel : Panel
         restartBtn = GetNode<Button>("%RestartBtn");
 
         continueBtn.Pressed += () => GameEvents.RaiseBattleWon();
-        restartBtn.Pressed += () => GetTree().ReloadCurrentScene();
+        restartBtn.Pressed += HandleGameover;
         GameEvents.OnBattleOverScreenRequested += ShowScreen;
+    }
+
+    private void HandleGameover()
+    {
+        PackedScene scene = GD.Load<PackedScene>(GameConstants.CHAR_SELECTOR_SCENE);
+        GetTree().ChangeSceneToPacked(scene);
     }
 
     public override void _ExitTree()

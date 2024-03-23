@@ -28,6 +28,7 @@ public partial class CharacterSelector : Control
 
     public override void _Ready()
     {
+        GetTree().Paused = false;
         Stats = GameConstants.WARRIOR_STATS;
 
         startBtn.Pressed += HandleStartBtn;
