@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
     
@@ -24,6 +23,10 @@ public partial class PlayerHandler : Node
 
     private void HandleCardPlayed(Card card)
     {
+        if (card.duplicateOnPlayed) 
+        {
+            character.discardPile.AddCard(card);
+        }
         character.discardPile.AddCard(card);
     }
 

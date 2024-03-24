@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b586ho3b5avmu"]
+
+[ext_resource type="Texture2D" uid="uid://dmugj3qw6wo4a" path="res://Assets/Tiny Dungeon/Tiles/Shout.png" id="1_47e7c"]
+[ext_resource type="Script" path="res://Resources/Characters/Warrior/Cards/WarriorAnger.cs" id="2_u23pj"]
+
+[resource]
+script = ExtResource("2_u23pj")
+id = "Anger"
+type = 0
+target = 1
+rarity = 0
+cost = 0
+icon = ExtResource("1_47e7c")
+tooltopText = "[center]Deal [color=\"ff0000\"]6[/color] damage. Add a copy of this card to your discard pile.[/center]"
+duplicateOnPlayed = true

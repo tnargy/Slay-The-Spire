@@ -27,6 +27,7 @@ public partial class Card : Resource
     [Export] public Texture2D icon;
     [Export(PropertyHint.MultilineText)] public string tooltopText;
     [Export] public AudioStream sound;
+    [Export] public bool duplicateOnPlayed = false;
 
     public bool IsSingleTargeted() => target == Target.SINGLE_ENEMY;
 

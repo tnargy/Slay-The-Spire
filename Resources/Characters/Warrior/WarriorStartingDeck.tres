@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://xmxmjhrhrd86"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://xmxmjhrhrd86"]
 
 [ext_resource type="Resource" uid="uid://ct24wa1tvpvnj" path="res://Resources/Characters/GeneralCards/AxeAttack.tres" id="1_3ux8r"]
 [ext_resource type="Resource" uid="uid://b7bnrfmhat7du" path="res://Resources/Characters/GeneralCards/BlockAction.tres" id="2_b7ojn"]
 [ext_resource type="Resource" uid="uid://bfhqamosone0d" path="res://Resources/Characters/Warrior/Cards/WarriorSlash.tres" id="2_dmam8"]
+[ext_resource type="Resource" uid="uid://b586ho3b5avmu" path="res://Resources/Characters/Warrior/Cards/WarriorAnger.tres" id="4_c1140"]
 [ext_resource type="Script" path="res://Resources/Card/CardPile.cs" id="4_y0pav"]
 
 [resource]
 script = ExtResource("4_y0pav")
-cards = Array[Resource]([ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("2_b7ojn"), ExtResource("2_b7ojn"), ExtResource("2_b7ojn"), ExtResource("2_b7ojn"), ExtResource("2_dmam8")])
+cards = Array[Resource]([ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("1_3ux8r"), ExtResource("2_b7ojn"), ExtResource("2_b7ojn"), ExtResource("2_b7ojn"), ExtResource("2_b7ojn"), ExtResource("2_dmam8"), ExtResource("4_c1140")])
