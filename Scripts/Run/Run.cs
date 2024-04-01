@@ -4,6 +4,7 @@ using Godot;
 public partial class Run : Node
 {
     Node currentView;
+    HealthUI healthUI;
     GoldUI goldUI;
     CardPileButton deckButton;
     CardPileView deckView;
@@ -15,6 +16,7 @@ public partial class Run : Node
     public override void _Ready()
     {
         currentView = GetNode<Node>("%CurrentView");
+        healthUI = GetNode<HealthUI>("%HealthUI");
         goldUI = GetNode<GoldUI>("%GoldUI");
         deckButton = GetNode<CardPileButton>("%DeckButton");
         deckView = GetNode<CardPileView>("%DeckView");
@@ -47,6 +49,8 @@ public partial class Run : Node
         GameEvents.OnTreasureRoomExited -= ShowMap;
         GameEvents.OnMapExited -= HandleMapExited;
         GameEvents.OnBattleWon -= HandleBattleWon;
+
+        character.OnStatsChanged -= () => healthUI.UpdateStats(character);
     }
 
     private void StartRun()
@@ -59,6 +63,8 @@ public partial class Run : Node
 
     private void SetupTopBar()
     {
+        character.OnStatsChanged += () => healthUI.UpdateStats(character);
+        healthUI.UpdateStats(character);
         goldUI.runStats = stats;
 
         deckButton.cardPile = character.deck;

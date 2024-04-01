@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class Campfire : Control
@@ -22,12 +21,12 @@ public partial class Campfire : Control
 
     Button rest;
     Label heal;
-    StatsUI statsUI;
+    HealthUI healthUI;
 
 
     public override void _Ready()
     {
-        statsUI = GetNode<StatsUI>("%StatsUI");
+        healthUI = GetNode<HealthUI>("%HealthUI");
         rest = GetNode<Button>("%Rest");
         heal = GetNode<Label>("%Heal");
         rest.Pressed += HandleRest;
@@ -36,7 +35,7 @@ public partial class Campfire : Control
 
     public override void _ExitTree() => _characterStats.OnStatsChanged -= UpdateCharacter;
 
-    private void UpdateCharacter() => statsUI.UpdateStats(characterStats);
+    private void UpdateCharacter() => healthUI.UpdateStats(characterStats);
 
     private void HandleRest()
     {

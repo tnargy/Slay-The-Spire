@@ -14,3 +14,4 @@ cost = 1
 icon = ExtResource("1_i4t1o")
 tooltopText = "[center]Deal [color=\"ff0000\"]6[/color] damage.[/center]"
 sound = ExtResource("3_j0sc5")
+duplicateOnPlayed = false

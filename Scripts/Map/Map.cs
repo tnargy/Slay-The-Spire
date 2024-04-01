@@ -30,6 +30,8 @@ public partial class Map : Node2D
 
     public override void _Input(InputEvent @event)
     {
+        if (!Visible) { return; }
+
         float clampY;
         if (@event.IsActionPressed(GameConstants.INPUt_SCROLL_UP))
         {

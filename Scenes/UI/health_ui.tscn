@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://vr2ulklk730g"]
+
+[ext_resource type="Texture2D" uid="uid://d187sn45ufc4v" path="res://Assets/Tiny Dungeon/Tiles/Heart.png" id="1_4n5sq"]
+[ext_resource type="Script" path="res://Scripts/UI/HealthUI.cs" id="1_21up1"]
+
+[node name="HealthUI" type="HBoxContainer"]
+script = ExtResource("1_21up1")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_4n5sq")
+expand_mode = 2
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxHealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+text = "/999"
+horizontal_alignment = 1
+vertical_alignment = 1
